@@ -1,5 +1,60 @@
 // Main JavaScript for Sunny Style Website
 
+// Check if products is loaded
+if (typeof products === 'undefined') {
+    console.error('ERROR: products.js not loaded!');
+    // Create fallback products
+    window.products = [
+        {
+            id: 1,
+            name: "JK3200 Electric Handheld Packaging Machine",
+            category: "Strapping Equipment",
+            price: "CAD $699",
+            image: "📦",
+            images: [],
+            shortDesc: "Portable electric strapping tool",
+            fullDesc: "Professional handheld strapping machine.",
+            specs: {"Model":"JK3200","Strap Width":"13-16mm"},
+            features: ["One-handed operation"],
+            service: {warranty:"1 Year",support:"Online",customization:"Available"},
+            attributes: {"Application":"Packaging"},
+            description: "<h3>Product Overview</h3><p>Professional handheld strapping machine.</p>"
+        },
+        {
+            id: 2,
+            name: "Portable Mini Self-Loading Stacker 1.6m",
+            category: "Stacker",
+            price: "CAD $999",
+            image: "🚜",
+            images: [],
+            shortDesc: "Portable mini self-loading stacker",
+            fullDesc: "Mini Electric Stacker.",
+            specs: {"Load Capacity":"300kg","Max Height":"1600mm"},
+            features: ["Maintenance free"],
+            service: {warranty:"1 Year",support:"Online",customization:"Available"},
+            attributes: {"Condition":"New"},
+            description: "<h3>Overview</h3><p>Mini Electric Stacker.</p>"
+        },
+        {
+            id: 3,
+            name: "Self-Loading Lifting Stacker 1000kg",
+            category: "Stacker",
+            price: "CAD $1,299",
+            image: "🏗️",
+            images: [],
+            shortDesc: "Semi-electric portable stacker",
+            fullDesc: "Self-loading lifting stacker.",
+            specs: {"Load Capacity":"1000kg","Max Height":"1600mm"},
+            features: ["High-power motor"],
+            service: {warranty:"1 Year",support:"Online",customization:"Available"},
+            attributes: {"Condition":"New"},
+            description: "<h3>Overview</h3><p>Self-loading lifting stacker.</p>"
+        }
+    ];
+} else {
+    console.log('Products loaded successfully:', products.length);
+}
+
 // Store quote submissions
 let quoteSubmissions = JSON.parse(localStorage.getItem('quoteSubmissions') || '[]');
 
