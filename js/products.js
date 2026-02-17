@@ -1,4 +1,3 @@
-// Product Data - Industrial Equipment
 const products = [
     {
         id: 1,
@@ -6,26 +5,14 @@ const products = [
         category: "Strapping Equipment",
         price: "CAD $699",
         image: "images/product1-main.jpg",
-        images: [
-            "images/product1-main.jpg",
-            "images/product1-1.jpg",
-            "images/product1-2.jpg",
-            "images/product1-3.jpg",
-            "images/product1-4.jpg",
-            "images/product1-5.jpg"
-        ],
+        images: ["images/product1-main.jpg","images/product1-1.jpg","images/product1-2.jpg","images/product1-3.jpg","images/product1-4.jpg","images/product1-5.jpg"],
         video: "images/product1-video.mp4",
         shortDesc: "Portable electric strapping tool for 13-16mm PP/PET straps",
         fullDesc: "The JK3200 is a professional handheld electric strapping machine designed for mobile packaging operations.",
-        specs: {
-            "Model": "JK3200",
-            "Strap Width": "13-16mm",
-            "Tension Force": "900-3200N",
-            "Battery Life": "90 minutes"
-        },
-        features: ["One-handed operation", "Friction welding", "Adjustable tension"],
-        service: { warranty: "1 Year", support: "Online", customization: "Available" },
-        attributes: { "Application": "Packaging", "Voltage": "110V-220V" },
+        specs: {"Model":"JK3200","Strap Width":"13-16mm","Tension Force":"900-3200N","Battery Life":"90 minutes"},
+        features: ["One-handed operation","Friction welding","Adjustable tension"],
+        service: {warranty:"1 Year",support:"Online",customization:"Available"},
+        attributes: {"Application":"Packaging","Voltage":"110V-220V"},
         description: "<h3>Product Overview</h3><p>Professional handheld strapping machine.</p>"
     },
     {
@@ -34,14 +21,14 @@ const products = [
         category: "Stacker",
         price: "CAD $999",
         image: "images/主图-1.jpg",
-        images: ["images/主图-1.jpg", "images/主图-2.jpg", "images/主图-3.jpg", "images/主图-4.jpg", "images/主图-5.jpg", "images/主图-6.jpg"],
+        images: ["images/主图-1.jpg","images/主图-2.jpg","images/主图-3.jpg","images/主图-4.jpg","images/主图-5.jpg","images/主图-6.jpg"],
         video: "images/product2-video.mp4",
         shortDesc: "Portable mini self-loading stacker with 1.6m lifting height",
         fullDesc: "The FANGGONG Mini Electric Stacker has strong robust and classical designs.",
-        specs: { "Load Capacity": "300kg", "Max Height": "1600mm" },
-        features: ["Maintenance free", "Automatic charger", "Compact design"],
-        service: { warranty: "1 Year", support: "Online", customization: "Available" },
-        attributes: { "Condition": "New", "Origin": "China" },
+        specs: {"Load Capacity":"300kg","Max Height":"1600mm"},
+        features: ["Maintenance free","Automatic charger","Compact design"],
+        service: {warranty:"1 Year",support:"Online",customization:"Available"},
+        attributes: {"Condition":"New","Origin":"China"},
         description: "<h3>Overview</h3><p>Ideal for frequent lifting.</p>"
     },
     {
@@ -50,14 +37,14 @@ const products = [
         category: "Stacker",
         price: "CAD $1,299",
         image: "images/主图-11.jpg",
-        images: ["images/主图-11.jpg", "images/主图-12.jpg", "images/主图-13.jpg", "images/主图-14.jpg", "images/主图-15.jpg", "images/主图-16.jpg"],
+        images: ["images/主图-11.jpg","images/主图-12.jpg","images/主图-13.jpg","images/主图-14.jpg","images/主图-15.jpg","images/主图-16.jpg"],
         video: "images/product3-video.mp4",
         shortDesc: "Semi-electric portable self-loading stacker 1000kg",
         fullDesc: "Small truck forklift with automatic loading electric stacker.",
-        specs: { "Load Capacity": "1000kg", "Max Height": "1600mm" },
-        features: ["High-power motor", "Safe lifting", "Flexible design"],
-        service: { warranty: "1 Year", support: "Online", customization: "Available" },
-        attributes: { "Condition": "New", "Origin": "Hebei, China" },
+        specs: {"Load Capacity":"1000kg","Max Height":"1600mm"},
+        features: ["High-power motor","Safe lifting","Flexible design"],
+        service: {warranty:"1 Year",support:"Online",customization:"Available"},
+        attributes: {"Condition":"New","Origin":"Hebei, China"},
         description: "<h3>Overview</h3><p>Designed for efficient material handling.</p>"
     },
     {
@@ -69,11 +56,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 5,
@@ -84,11 +71,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 6,
@@ -99,11 +86,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 7,
@@ -114,11 +101,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 8,
@@ -129,11 +116,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 9,
@@ -144,11 +131,11 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     },
     {
         id: 10,
@@ -159,10 +146,10 @@ const products = [
         images: [],
         shortDesc: "上新中，敬请期待！",
         fullDesc: "This product is currently in preparation.",
-        specs: { "Status": "Coming Soon" },
+        specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
-        service: { warranty: "Coming Soon", support: "Coming Soon", customization: "Coming Soon" },
-        attributes: { "Status": "Coming Soon" },
-        description: "<h3>产品上新中</h3><p>⏳ 上新中，敬请期待！</p>"
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
     }
 ];
