@@ -7,24 +7,34 @@ let quoteSubmissions = JSON.parse(localStorage.getItem('quoteSubmissions') || '[
 let currentImageIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
     renderProducts();
-    populateProductDropdown();
     setupModal();
-    setupForm();
     setupSmoothScroll();
-    checkNewSubmissions();
 });
 
 // Render product cards
 function renderProducts() {
     const productGrid = document.getElementById('productGrid');
-    if (!productGrid) return;
+    if (!productGrid) {
+        console.error('Product grid not found');
+        return;
+    }
     
     productGrid.innerHTML = '';
+    
+    if (typeof products === 'undefined') {
+        console.error('Products data not loaded');
+        productGrid.innerHTML = '<p style="text-align: center; padding: 50px;">Loading products...</p>';
+        return;
+    }
+    
     products.forEach(product => {
         const card = createProductCard(product);
         productGrid.appendChild(card);
     });
+    
+    console.log('Products rendered:', products.length);
 }
 
 // Create product card element
@@ -37,7 +47,7 @@ function createProductCard(product) {
     card.innerHTML = `
         <div class="product-image" style="${isImagePath ? 'padding: 0; overflow: hidden;' : ''}">
             ${isImagePath 
-                ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-size: 4rem;\\'>📦</span>';">`
+                ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size: 4rem;\'>📦</span>';">`
                 : `<span style="font-size: 4rem;">${product.image}</span>`
             }
         </div>
@@ -49,7 +59,7 @@ function createProductCard(product) {
             </div>
             <div class="product-price">${product.price}</div>
             <div class="product-actions">
-                <button class="btn-secondary" onclick="showProductDetail(${product.id})" data-i18n="btn_details">View Details</button>
+                <button class="btn-secondary" onclick="showProductDetail(${product.id})">View Details</button>
             </div>
         </div>
     `;
@@ -58,34 +68,22 @@ function createProductCard(product) {
 
 // Get key specifications for display
 function getKeySpecs(product) {
-    const specs = product.specs;
+    const specs = product.specs || {};
     const keySpecs = [];
     
-    if (specs['Strap Width']) keySpecs.push(specs['Strap Width']);
-    if (specs['Tension Force']) keySpecs.push(specs['Tension Force']);
-    if (specs['Battery']) keySpecs.push('Battery Powered');
+    if (specs['Load Capacity']) keySpecs.push(specs['Load Capacity']);
+    else if (specs['Strap Width']) keySpecs.push(specs['Strap Width']);
+    
+    if (specs['Max Height'] || specs['Max Lift Height']) {
+        keySpecs.push(specs['Max Height'] || specs['Max Lift Height']);
+    }
+    
+    if (specs['Battery Life']) keySpecs.push(specs['Battery Life']);
     
     return keySpecs.slice(0, 3);
 }
 
-// Populate product dropdown in quote form
-function populateProductDropdown() {
-    const select = document.getElementById('product');
-    if (!select) return;
-    
-    const firstOption = select.options[0];
-    select.innerHTML = '';
-    select.appendChild(firstOption);
-    
-    products.forEach(product => {
-        const option = document.createElement('option');
-        option.value = product.name;
-        option.textContent = product.name;
-        select.appendChild(option);
-    });
-}
-
-// Show product detail modal with carousel and sections
+// Show product detail modal with carousel and tabs
 function showProductDetail(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
@@ -96,10 +94,12 @@ function showProductDetail(productId) {
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
     
+    if (!modal || !modalTitle || !modalBody) return;
+    
     modalTitle.textContent = product.name;
     
     const hasMultipleImages = product.images && product.images.length > 0;
-    const imageUrls = hasMultipleImages ? product.images : [null];
+    const imageUrls = hasMultipleImages ? product.images : [product.image || ''];
     const hasVideo = product.video && product.video.length > 0;
     
     let allThumbnails = [...imageUrls];
@@ -109,14 +109,13 @@ function showProductDetail(productId) {
     
     modalBody.innerHTML = `
         <div class="product-detail-new">
-            <!-- Left: Image Gallery -->
             <div class="product-gallery">
                 <div class="main-image-container">
                     <button class="gallery-nav prev" onclick="changeImage(-1, ${product.id})">❮</button>
                     <img id="mainProductImage" src="${imageUrls[0] || ''}" alt="${product.name}" 
                          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="image-placeholder" style="display: ${imageUrls[0] ? 'none' : 'flex'};">
-                        <span style="font-size: 8rem;">📦</span>
+                        <span style="font-size: 8rem;">${product.image || '📦'}</span>
                     </div>
                     <div id="videoContainer" style="display: none; width: 100%; height: 100%;">
                         <video id="productVideo" controls style="width: 100%; height: 100%; object-fit: contain;">
@@ -134,25 +133,24 @@ function showProductDetail(productId) {
                         }
                         return `<div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="selectImage(${index}, ${product.id})">
                             <img src="${item || ''}" alt="${product.name} ${index + 1}"
-                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-size: 2rem;\\'>📦</span>';">
+                                 onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size: 2rem;\'>📦</span>';">
                         </div>`;
                     }).join('')}
                 </div>
             </div>
             
-            <!-- Right: Product Info -->
             <div class="product-info-panel">
                 <div class="category">${product.category}</div>
                 <div class="product-price-large">${product.price}</div>
-                <p class="product-short-desc">${product.shortDesc}</p>
-                <button class="cta-button" onclick="openQuoteModal('${product.name}')" data-i18n="btn_quote">Request Quote</button>
+                <p class="product-short-desc">${product.fullDesc}</p>
                 
                 <div class="quick-specs">
-                    <h4>Quick Specs</h4>
+                    <h4>Quick Specifications</h4>
                     <div class="specs-grid">
-                        ${getKeySpecs(product).map(spec => `
+                        ${Object.entries(product.specs || {}).slice(0, 4).map(([key, value]) => `
                             <div class="spec-item">
-                                <span class="spec-value">${spec}</span>
+                                <span class="spec-label">${key}</span>
+                                <span class="spec-value">${value}</span>
                             </div>
                         `).join('')}
                     </div>
@@ -160,52 +158,37 @@ function showProductDetail(productId) {
             </div>
         </div>
         
-        <!-- Product Sections Navigation -->
         <div class="product-tabs-container">
             <div class="product-tabs">
-                <button class="tab-btn" onclick="scrollToSection('section-service')">Service</button>
-                <button class="tab-btn" onclick="scrollToSection('section-attributes')">Attributes</button>
-                <button class="tab-btn" onclick="scrollToSection('section-specs')">Specifications</button>
-                <button class="tab-btn" onclick="scrollToSection('section-description')">Description</button>
+                <a href="#section-service-${product.id}" class="tab-btn" onclick="scrollToSection('section-service-${product.id}'); return false;">Service</a>
+                <a href="#section-attributes-${product.id}" class="tab-btn" onclick="scrollToSection('section-attributes-${product.id}'); return false;">Attributes</a>
+                <a href="#section-specs-${product.id}" class="tab-btn" onclick="scrollToSection('section-specs-${product.id}'); return false;">Specifications</a>
+                <a href="#section-description-${product.id}" class="tab-btn" onclick="scrollToSection('section-description-${product.id}'); return false;">Description</a>
             </div>
         </div>
         
-        <!-- Service Section -->
-        <div id="section-service" class="product-section">
-            <h3 class="section-heading">🛡️ Service</h3>
+        <div id="section-service-${product.id}" class="product-section">
+            <h3 class="section-heading">Service</h3>
             ${product.service ? `
                 <div class="service-grid">
-                    ${product.service.warranty ? `
                     <div class="service-item">
                         <span class="service-icon">🛡️</span>
-                        <div>
-                            <strong>Warranty</strong>
-                            <p>${product.service.warranty}</p>
-                        </div>
-                    </div>` : ''}
-                    ${product.service.support ? `
+                        <div><strong>Warranty</strong><p>${product.service.warranty}</p></div>
+                    </div>
                     <div class="service-item">
                         <span class="service-icon">📞</span>
-                        <div>
-                            <strong>Support</strong>
-                            <p>${product.service.support}</p>
-                        </div>
-                    </div>` : ''}
-                    ${product.service.customization ? `
+                        <div><strong>Support</strong><p>${product.service.support}</p></div>
+                    </div>
                     <div class="service-item">
                         <span class="service-icon">⚙️</span>
-                        <div>
-                            <strong>Customization</strong>
-                            <p>${product.service.customization}</p>
-                        </div>
-                    </div>` : ''}
+                        <div><strong>Customization</strong><p>${product.service.customization}</p></div>
+                    </div>
                 </div>
             ` : '<p>Service information coming soon.</p>'}
         </div>
         
-        <!-- Attributes Section -->
-        <div id="section-attributes" class="product-section">
-            <h3 class="section-heading">📋 Attributes</h3>
+        <div id="section-attributes-${product.id}" class="product-section">
+            <h3 class="section-heading">Attributes</h3>
             ${product.attributes ? `
                 <div class="attributes-table">
                     ${Object.entries(product.attributes).map(([key, value]) => `
@@ -218,57 +201,25 @@ function showProductDetail(productId) {
             ` : '<p>Product attributes coming soon.</p>'}
         </div>
         
-        <!-- Specifications Section -->
-        <div id="section-specs" class="product-section">
-            <h3 class="section-heading">⚙️ Specifications</h3>
+        <div id="section-specs-${product.id}" class="product-section">
+            <h3 class="section-heading">Specifications</h3>
             ${product.specs ? `
                 <table class="specs-table-full">
                     ${Object.entries(product.specs).map(([key, value]) => `
-                        <tr>
-                            <th>${key}</th>
-                            <td>${value}</td>
-                        </tr>
+                        <tr><th>${key}</th><td>${value}</td></tr>
                     `).join('')}
                 </table>
             ` : '<p>Technical specifications coming soon.</p>'}
         </div>
         
-        <!-- Description Section -->
-        <div id="section-description" class="product-section">
-            <h3 class="section-heading">📝 Description</h3>
-            <div class="description-content">
-                ${product.description || '<p>Detailed description coming soon.</p>'}
-            </div>
+        <div id="section-description-${product.id}" class="product-section">
+            <h3 class="section-heading">Description</h3>
+            <div class="description-content">${product.description || '<p>Detailed description coming soon.</p>'}</div>
         </div>
     `;
     
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
-}
-
-// Scroll to section within modal
-function scrollToSection(sectionId) {
-    const modalContent = document.querySelector('.modal-content');
-    const section = document.getElementById(sectionId);
-    
-    if (modalContent && section) {
-        // Calculate the position relative to modal-content
-        const modalRect = modalContent.getBoundingClientRect();
-        const sectionRect = section.getBoundingClientRect();
-        const scrollTop = sectionRect.top - modalRect.top + modalContent.scrollTop - 150;
-        
-        modalContent.scrollTo({
-            top: scrollTop,
-            behavior: 'smooth'
-        });
-        
-        // Highlight effect
-        section.style.background = 'rgba(221, 107, 32, 0.1)';
-        section.style.transition = 'background 0.5s';
-        setTimeout(() => {
-            section.style.background = '';
-        }, 1000);
-    }
 }
 
 // Change image in carousel
@@ -330,25 +281,27 @@ function updateGallery(product) {
     });
 }
 
-// Open quote modal with pre-selected product
-function openQuoteModal(productName) {
-    const productModal = document.getElementById('productModal');
-    if (productModal) productModal.style.display = 'none';
+// Scroll to section within modal
+function scrollToSection(sectionId) {
+    const modalContent = document.querySelector('.modal-content');
+    const section = document.getElementById(sectionId);
     
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
+    if (modalContent && section) {
+        const modalRect = modalContent.getBoundingClientRect();
+        const sectionRect = section.getBoundingClientRect();
+        const scrollTop = sectionRect.top - modalRect.top + modalContent.scrollTop - 150;
+        
+        modalContent.scrollTo({
+            top: scrollTop,
+            behavior: 'smooth'
+        });
+        
+        section.style.background = 'rgba(221, 107, 32, 0.1)';
+        section.style.transition = 'background 0.5s';
+        setTimeout(() => {
+            section.style.background = '';
+        }, 1000);
     }
-    
-    const productSelect = document.getElementById('product');
-    if (productSelect && productName) {
-        productSelect.value = productName;
-    }
-    
-    setTimeout(() => {
-        const firstNameField = document.getElementById('firstName');
-        if (firstNameField) firstNameField.focus();
-    }, 800);
 }
 
 // Setup modal functionality
@@ -380,174 +333,7 @@ function setupModal() {
     });
 }
 
-// Setup form submission
-function setupForm() {
-    const form = document.getElementById('quoteForm');
-    if (!form) return;
-    
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        
-        // Only email is required
-        if (!data.email) {
-            alert('Please enter your email address.');
-            return;
-        }
-        
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        data.id = Date.now();
-        data.timestamp = new Date().toISOString();
-        data.status = 'new';
-        
-        quoteSubmissions.push(data);
-        localStorage.setItem('quoteSubmissions', JSON.stringify(quoteSubmissions));
-        
-        // Send email notification
-        sendQuoteEmailNotification(data);
-        
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        submitButton.textContent = t('form_submitting');
-        submitButton.disabled = true;
-        
-        setTimeout(() => {
-            const displayName = data.firstName || data.email;
-            alert(`Thank you! Your quote request has been submitted. We will contact you at ${data.email} within 24 hours.`);
-            form.reset();
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-            showQuoteNotification(data);
-        }, 1500);
-    });
-}
-
-// Send quote email notification
-function sendQuoteEmailNotification(data) {
-    // Email configuration - Replace with your email
-    const EMAIL_CONFIG = {
-        recipientEmail: 'kingskywing@gmail.com', // ← 修改为您的邮箱
-        subject: `New Quote Request from ${data.email}`,
-    };
-    
-    // Generate email content
-    const emailContent = generateQuoteEmailContent(data);
-    
-    // Method 1: Using mailto link (opens user's email client)
-    const mailtoLink = generateMailtoLink(data, EMAIL_CONFIG.recipientEmail);
-    
-    // Method 2: Log to console for debugging
-    console.log('=== QUOTE REQUEST RECEIVED ===');
-    console.log('To:', EMAIL_CONFIG.recipientEmail);
-    console.log('Subject:', EMAIL_CONFIG.subject);
-    console.log('Content:', emailContent);
-    console.log('==============================');
-    
-    // Method 3: Store in localStorage for admin panel
-    storeQuoteForAdmin(data);
-    
-    // Note: For production, you need to set up a backend service
-    // Options: EmailJS, Formspree, Netlify Forms, or custom backend API
-    
-    return {
-        success: true,
-        message: 'Quote request saved. Email notification would be sent in production.'
-    };
-}
-
-// Generate email content
-function generateQuoteEmailContent(data) {
-    return `
-New Quote Request
-================
-
-Email: ${data.email}
-First Name: ${data.firstName || 'Not provided'}
-Last Name: ${data.lastName || 'Not provided'}
-Phone: ${data.phone || 'Not provided'}
-Company: ${data.company || 'Not provided'}
-Product Interest: ${data.product || 'Not specified'}
-Message: ${data.message || 'No message'}
-
-Submitted: ${new Date(data.timestamp).toLocaleString()}
-
-================
-Sunny Style Website
-    `;
-}
-
-// Generate mailto link
-function generateMailtoLink(data, recipient) {
-    const subject = encodeURIComponent(`Quote Request from ${data.email}`);
-    const body = encodeURIComponent(generateQuoteEmailContent(data));
-    return `mailto:${recipient}?subject=${subject}&body=${body}`;
-}
-
-// Store quote for admin panel
-function storeQuoteForAdmin(data) {
-    // This is already done in the form submission
-    // The quote is stored in localStorage.quoteSubmissions
-    console.log('Quote stored for admin review:', data);
-}
-
-// Show quote notification
-function showQuoteNotification(data) {
-    const modal = document.getElementById('quoteNotificationModal');
-    const body = document.getElementById('quoteNotificationBody');
-    
-    if (!modal || !body) return;
-    
-    body.innerHTML = `
-        <div style="margin-bottom: 20px;">
-            <h4>New Quote Request Received!</h4>
-            <p style="color: var(--text-light); margin-top: 10px;">
-                <strong>Name:</strong> ${data.firstName} ${data.lastName}<br>
-                <strong>Email:</strong> ${data.email}<br>
-                <strong>Phone:</strong> ${data.phone || 'N/A'}<br>
-                <strong>Company:</strong> ${data.company || 'N/A'}<br>
-                <strong>Product:</strong> ${data.product || 'Not specified'}<br>
-                <strong>Message:</strong> ${data.message || 'N/A'}<br>
-                <strong>Time:</strong> ${new Date(data.timestamp).toLocaleString()}
-            </p>
-        </div>
-        <p style="background: #f0fff4; padding: 15px; border-radius: 6px; border-left: 4px solid var(--success-color);">
-            ✓ This quote has been saved. You can view all submissions in the Admin Panel.
-        </p>
-    `;
-    
-    modal.style.display = 'block';
-}
-
-// Close quote notification
-function closeQuoteNotification() {
-    const modal = document.getElementById('quoteNotificationModal');
-    if (modal) modal.style.display = 'none';
-}
-
-// Check for new submissions
-function checkNewSubmissions() {
-    const newSubmissions = quoteSubmissions.filter(s => s.status === 'new');
-    if (newSubmissions.length > 0 && isAdminLoggedIn && isAdminLoggedIn()) {
-        newSubmissions.forEach(s => s.status = 'viewed');
-        localStorage.setItem('quoteSubmissions', JSON.stringify(quoteSubmissions));
-        
-        if (newSubmissions.length === 1) {
-            showQuoteNotification(newSubmissions[0]);
-        } else {
-            alert(`You have ${newSubmissions.length} new quote requests! Check the Admin Panel to view them.`);
-        }
-    }
-}
-
-// Setup smooth scrolling
+// Setup smooth scrolling for navigation links
 function setupSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(event) {
@@ -567,7 +353,7 @@ function setupSmoothScroll() {
     });
 }
 
-// Header scroll effect
+// Add scroll effect to header
 window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (header) {
@@ -579,12 +365,4 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Export functions
-window.getQuoteSubmissions = function() {
-    return quoteSubmissions;
-};
-
-window.clearQuoteSubmissions = function() {
-    quoteSubmissions = [];
-    localStorage.removeItem('quoteSubmissions');
-};
+console.log('main.js loaded successfully');
