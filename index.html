@@ -249,68 +249,197 @@
     </div>
 
     <script>
-        // Product Data
-        const products = [
-            {
-                id: 1,
-                name: "JK3200 Electric Handheld Packaging Machine",
-                category: "Strapping Equipment",
-                price: "CAD $699",
-                image: "images/product1-main.jpg",
-                shortDesc: "Portable electric strapping tool for 13-16mm PP/PET straps",
-                fullDesc: "The JK3200 is a professional handheld electric strapping machine designed for mobile packaging operations. Features friction welding sealing, adjustable tension (900-3200N), and long-lasting battery for efficient strapping anywhere.",
-                specs: {
-                    "Model": "JK3200",
-                    "Strap Width": "13-16mm",
-                    "Strap Thickness": "0.4-1.2mm",
-                    "Tension Force": "900-3200N",
-                    "Battery Life": "90 minutes (250-350 cycles)",
-                    "Sealing Type": "Friction Welding",
-                    "Weight": "4kg (with battery)"
-                }
-            },
-            {
-                id: 2,
-                name: "Portable Mini Self-Loading Stacker 1.6m",
-                category: "Stacker",
-                price: "CAD $999",
-                image: "images/主图-1.jpg",
-                shortDesc: "Portable mini self-loading stacker with 1.6m lifting height",
-                fullDesc: "The FANGGONG Mini Electric Stacker has strong robust and classical designs. Ideal for frequent lifting with maximum 300kg load in industrial, laboratory, hospitals, office or other applications.",
-                specs: {
-                    "Load Capacity": "300kg",
-                    "Max Lifting Height": "1,600mm",
-                    "Battery Type": "Lead Acid",
-                    "Fork Length": "600mm",
-                    "Self Weight": "71kg",
-                    "Working Mode": "Standing Operation"
-                }
-            },
-            {
-                id: 3,
-                name: "Self-Loading Lifting Stacker 1000kg",
-                category: "Stacker",
-                price: "CAD $1,299",
-                image: "images/主图-11.jpg",
-                shortDesc: "Semi-electric portable self-loading stacker 1000kg",
-                fullDesc: "Small truck forklift with automatic loading electric stacker. Small and flexible, easy to work in narrow spaces. Self-weight only 71kg, easy to move and store.",
-                specs: {
-                    "Load Capacity": "1000kg",
-                    "Max Lifting Height": "1,600mm",
-                    "Battery Type": "Lithium Ion",
-                    "Fork Length": "1000mm, 1150mm",
-                    "Drive Type": "Rear Drive",
-                    "Gradeability": "0.4"
-                }
-            },
-            { id: 4, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 5, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 6, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 7, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 8, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 9, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} },
-            { id: 10, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "上新中，敬请期待！", fullDesc: "This product is currently in preparation.", specs: {"Status": "Coming Soon"} }
-        ];
+        // Product Data with multilingual support
+        const productsData = {
+            en: [
+                {
+                    id: 1,
+                    name: "JK3200 Electric Handheld Packaging Machine",
+                    category: "Strapping Equipment",
+                    price: "CAD $699",
+                    image: "images/product1-main.jpg",
+                    shortDesc: "Portable electric strapping tool for 13-16mm PP/PET straps",
+                    fullDesc: "The JK3200 is a professional handheld electric strapping machine designed for mobile packaging operations. Features friction welding sealing, adjustable tension (900-3200N), and long-lasting battery for efficient strapping anywhere.",
+                    specs: {
+                        "Model": "JK3200",
+                        "Strap Width": "13-16mm",
+                        "Strap Thickness": "0.4-1.2mm",
+                        "Tension Force": "900-3200N",
+                        "Battery Life": "90 minutes (250-350 cycles)",
+                        "Sealing Type": "Friction Welding",
+                        "Weight": "4kg (with battery)"
+                    }
+                },
+                {
+                    id: 2,
+                    name: "Portable Mini Self-Loading Stacker 1.6m",
+                    category: "Stacker",
+                    price: "CAD $999",
+                    image: "images/主图-1.jpg",
+                    shortDesc: "Portable mini self-loading stacker with 1.6m lifting height",
+                    fullDesc: "The FANGGONG Mini Electric Stacker has strong robust and classical designs. Ideal for frequent lifting with maximum 300kg load in industrial, laboratory, hospitals, office or other applications.",
+                    specs: {
+                        "Load Capacity": "300kg",
+                        "Max Lifting Height": "1,600mm",
+                        "Battery Type": "Lead Acid",
+                        "Fork Length": "600mm",
+                        "Self Weight": "71kg",
+                        "Working Mode": "Standing Operation"
+                    }
+                },
+                {
+                    id: 3,
+                    name: "Self-Loading Lifting Stacker 1000kg",
+                    category: "Stacker",
+                    price: "CAD $1,299",
+                    image: "images/主图-11.jpg",
+                    shortDesc: "Semi-electric portable self-loading stacker 1000kg",
+                    fullDesc: "Small truck forklift with automatic loading electric stacker. Small and flexible, easy to work in narrow spaces. Self-weight only 71kg, easy to move and store.",
+                    specs: {
+                        "Load Capacity": "1000kg",
+                        "Max Lifting Height": "1,600mm",
+                        "Battery Type": "Lithium Ion",
+                        "Fork Length": "1000mm, 1150mm",
+                        "Drive Type": "Rear Drive",
+                        "Gradeability": "0.4"
+                    }
+                },
+                { id: 4, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 5, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 6, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 7, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 8, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 9, name: "Coming Soon - New Product", category: "Material Handling", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} },
+                { id: 10, name: "Coming Soon - New Product", category: "Strapping Equipment", price: "CAD $0.00", image: "⏳", shortDesc: "Coming Soon!", fullDesc: "This product is currently in preparation. Stay tuned!", specs: {"Status": "Coming Soon"} }
+            ],
+            fr: [
+                {
+                    id: 1,
+                    name: "Machine de Cerclage Électrique Portative JK3200",
+                    category: "Équipement de Cerclage",
+                    price: "CAD $699",
+                    image: "images/product1-main.jpg",
+                    shortDesc: "Outil de cerclage électrique portable pour sangles PP/PET 13-16mm",
+                    fullDesc: "La JK3200 est une machine de cerclage électrique portative professionnelle conçue pour les opérations d'emballage mobiles. Caractéristiques: soudure par friction, tension réglable (900-3200N), batterie longue durée.",
+                    specs: {
+                        "Modèle": "JK3200",
+                        "Largeur de Sangle": "13-16mm",
+                        "Épaisseur de Sangle": "0.4-1.2mm",
+                        "Force de Tension": "900-3200N",
+                        "Autonomie Batterie": "90 minutes (250-350 cycles)",
+                        "Type de Soudure": "Soudure par Friction",
+                        "Poids": "4kg (avec batterie)"
+                    }
+                },
+                {
+                    id: 2,
+                    name: "Gerbeur Auto-Chargeable Portable Mini 1.6m",
+                    category: "Gerbeur",
+                    price: "CAD $999",
+                    image: "images/主图-1.jpg",
+                    shortDesc: "Gerbeur auto-chargeable portable mini avec hauteur de levage 1.6m",
+                    fullDesc: "Le gerbeur électrique mini FANGGONG a des designs robustes et classiques. Idéal pour le levage fréquent avec charge maximale de 300kg dans les applications industrielles, laboratoires, hôpitaux, bureaux.",
+                    specs: {
+                        "Capacité de Charge": "300kg",
+                        "Hauteur de Levage Max": "1,600mm",
+                        "Type de Batterie": "Acide de Plomb",
+                        "Longueur de Fourche": "600mm",
+                        "Poids Propre": "71kg",
+                        "Mode de Travail": "Opération Debout"
+                    }
+                },
+                {
+                    id: 3,
+                    name: "Gerbeur de Levage Auto-Chargeable 1000kg",
+                    category: "Gerbeur",
+                    price: "CAD $1,299",
+                    image: "images/主图-11.jpg",
+                    shortDesc: "Gerbeur auto-chargeable portatif semi-électrique 1000kg",
+                    fullDesc: "Petit chariot élévateur avec gerbeur électrique à chargement automatique. Petit et flexible, facile à travailler dans des espaces étroits. Poids propre seulement 71kg, facile à déplacer et stocker.",
+                    specs: {
+                        "Capacité de Charge": "1000kg",
+                        "Hauteur de Levage Max": "1,600mm",
+                        "Type de Batterie": "Lithium Ion",
+                        "Longueur de Fourche": "1000mm, 1150mm",
+                        "Type d'Entraînement": "Entraînement Arrière",
+                        "Grimpabilité": "0.4"
+                    }
+                },
+                { id: 4, name: "Bientôt Disponible - Nouveau Produit", category: "Manutention", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 5, name: "Bientôt Disponible - Nouveau Produit", category: "Manutention", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 6, name: "Bientôt Disponible - Nouveau Produit", category: "Équipement de Cerclage", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 7, name: "Bientôt Disponible - Nouveau Produit", category: "Manutention", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 8, name: "Bientôt Disponible - Nouveau Produit", category: "Équipement de Cerclage", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 9, name: "Bientôt Disponible - Nouveau Produit", category: "Manutention", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} },
+                { id: 10, name: "Bientôt Disponible - Nouveau Produit", category: "Équipement de Cerclage", price: "CAD $0.00", image: "⏳", shortDesc: "Bientôt disponible!", fullDesc: "Ce produit est actuellement en préparation. Restez à l'écoute!", specs: {"Statut": "Bientôt Disponible"} }
+            ],
+            zh: [
+                {
+                    id: 1,
+                    name: "JK3200 电动手持打包机",
+                    category: "打包设备",
+                    price: "CAD $699",
+                    image: "images/product1-main.jpg",
+                    shortDesc: "便携式电动打包工具，适用于13-16mm PP/PET带",
+                    fullDesc: "JK3200是一款专业的手持电动打包机，专为移动包装作业设计。特点：摩擦焊接密封、可调张力（900-3200N）、长效电池，可在任何地方高效打包。",
+                    specs: {
+                        "型号": "JK3200",
+                        "带宽": "13-16mm",
+                        "带厚": "0.4-1.2mm",
+                        "张力": "900-3200N",
+                        "电池续航": "90分钟（250-350次）",
+                        "密封方式": "摩擦焊接",
+                        "重量": "4kg（含电池）"
+                    }
+                },
+                {
+                    id: 2,
+                    name: "便携式迷你自装堆高车 1.6米",
+                    category: "堆高车",
+                    price: "CAD $999",
+                    image: "images/主图-1.jpg",
+                    shortDesc: "便携式迷你自装堆高车，提升高度1.6米",
+                    fullDesc: "FANGGONG迷你电动堆高车设计坚固经典。适用于频繁搬运，最大负载300kg，可用于工业、实验室、医院、办公室等场所。",
+                    specs: {
+                        "载重能力": "300kg",
+                        "最大提升高度": "1,600mm",
+                        "电池类型": "铅酸电池",
+                        "货叉长度": "600mm",
+                        "自重": "71kg",
+                        "工作模式": "站立操作"
+                    }
+                },
+                {
+                    id: 3,
+                    name: "自装提升堆高车 1000kg",
+                    category: "堆高车",
+                    price: "CAD $1,299",
+                    image: "images/主图-11.jpg",
+                    shortDesc: "半电动便携式自装堆高车 1000kg",
+                    fullDesc: "小型卡车叉车，带自动装载电动堆高车。小巧灵活，易于在狭窄空间工作。自重仅71kg，易于移动和存放。",
+                    specs: {
+                        "载重能力": "1000kg",
+                        "最大提升高度": "1,600mm",
+                        "电池类型": "锂离子电池",
+                        "货叉长度": "1000mm, 1150mm",
+                        "驱动方式": "后轮驱动",
+                        "爬坡度": "0.4"
+                    }
+                },
+                { id: 4, name: "即将上架 - 新产品", category: "物料搬运", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 5, name: "即将上架 - 新产品", category: "物料搬运", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 6, name: "即将上架 - 新产品", category: "打包设备", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 7, name: "即将上架 - 新产品", category: "物料搬运", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 8, name: "即将上架 - 新产品", category: "打包设备", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 9, name: "即将上架 - 新产品", category: "物料搬运", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} },
+                { id: 10, name: "即将上架 - 新产品", category: "打包设备", price: "CAD $0.00", image: "⏳", shortDesc: "即将上架，敬请期待!", fullDesc: "此产品正在准备中，敬请期待!", specs: {"状态": "即将上架"} }
+            ]
+        };
+
+        // Get products for current language
+        function getProducts() {
+            return productsData[currentLang] || productsData['en'];
+        }
 
         // Translations
         const translations = {
@@ -333,6 +462,11 @@
                 about_quality_desc: "All our products undergo rigorous quality testing and meet Canadian safety standards.",
                 about_service_title: "Canada-Wide Service",
                 about_service_desc: "We provide sales and after-sales support across Canada. Our network of service technicians ensures your equipment stays operational.",
+                specifications: "Specifications",
+                category: "Category",
+                price: "Price",
+                coming_soon: "Coming Soon",
+                view_details: "View Details",
                 about_custom_title: "Custom Solutions",
                 about_custom_desc: "We work with you to understand your specific requirements and recommend the best equipment solutions.",
                 contact_title: "Contact Us",
@@ -371,6 +505,11 @@
                 about_quality_desc: "Tous nos produits subissent des tests de qualité rigoureux et répondent aux normes de sécurité canadiennes.",
                 about_service_title: "Service National",
                 about_service_desc: "Nous fournissons des ventes et un support après-vente à travers le Canada. Notre réseau de techniciens assure le bon fonctionnement.",
+                specifications: "Spécifications",
+                category: "Catégorie",
+                price: "Prix",
+                coming_soon: "Bientôt Disponible",
+                view_details: "Voir Détails",
                 about_custom_title: "Solutions Sur Mesure",
                 about_custom_desc: "Nous travaillons avec vous pour comprendre vos besoins spécifiques.",
                 contact_title: "Contactez-Nous",
@@ -409,6 +548,11 @@
                 about_quality_desc: "我们所有的产品都经过严格的质量测试，符合加拿大安全标准。",
                 about_service_title: "加拿大全国服务",
                 about_service_desc: "我们在加拿大各地提供销售和售后支持。我们的服务技术人员网络确保您的设备始终保持正常运行。",
+                specifications: "产品规格",
+                category: "分类",
+                price: "价格",
+                coming_soon: "即将上架",
+                view_details: "查看详情",
                 about_custom_title: "定制解决方案",
                 about_custom_desc: "我们与您合作，了解您的具体需求，推荐最佳的设备解决方案。",
                 contact_title: "联系我们",
@@ -434,7 +578,10 @@
 
         // Render products
         function renderProducts() {
+            const products = getProducts();
             const grid = document.getElementById('productGrid');
+            const t = translations[currentLang];
+            
             grid.innerHTML = products.map(p => `
                 <div class="product-card" onclick="openProductModal(${p.id})">
                     <div class="product-image">
@@ -451,8 +598,11 @@
 
         // Open product modal
         function openProductModal(id) {
+            const products = getProducts();
             const p = products.find(x => x.id === id);
             if (!p) return;
+            
+            const t = translations[currentLang];
             
             document.getElementById('modalTitle').textContent = p.name;
             document.getElementById('modalBody').innerHTML = `
@@ -462,7 +612,7 @@
                 <div class="detail-price">${p.price}</div>
                 <div class="detail-desc">${p.fullDesc}</div>
                 <div class="detail-specs">
-                    <h3>Specifications</h3>
+                    <h3>${t.specifications || 'Specifications'}</h3>
                     <table>
                         ${Object.entries(p.specs).map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}
                     </table>
