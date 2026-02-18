@@ -478,6 +478,8 @@
                 view_details: "View Details",
                 video: "Product Video",
                 productDetails: "Product Details",
+                inStock: "In Stock",
+                aboutThisItem: "About This Item",
                 about_custom_title: "Custom Solutions",
                 about_custom_desc: "We work with you to understand your specific requirements and recommend the best equipment solutions.",
                 contact_title: "Contact Us",
@@ -523,6 +525,8 @@
                 view_details: "Voir Détails",
                 video: "Vidéo du Produit",
                 productDetails: "Détails du Produit",
+                inStock: "En Stock",
+                aboutThisItem: "À Propos de Ce Produit",
                 about_custom_title: "Solutions Sur Mesure",
                 about_custom_desc: "Nous travaillons avec vous pour comprendre vos besoins spécifiques.",
                 contact_title: "Contactez-Nous",
@@ -568,6 +572,8 @@
                 view_details: "查看详情",
                 video: "产品视频",
                 productDetails: "产品详情",
+                inStock: "有现货",
+                aboutThisItem: "商品介绍",
                 about_custom_title: "定制解决方案",
                 about_custom_desc: "我们与您合作，了解您的具体需求，推荐最佳的设备解决方案。",
                 contact_title: "联系我们",
@@ -611,7 +617,7 @@
             `).join('');
         }
 
-        // Open product modal
+        // Open product modal - Amazon Style
         function openProductModal(id) {
             const products = getProducts();
             const p = products.find(x => x.id === id);
@@ -619,61 +625,138 @@
             
             const t = translations[currentLang];
             
-            // Build gallery images
-            let galleryHTML = '';
+            // Build thumbnail images
+            let thumbnailsHTML = '';
             if (p.images && p.images.length > 0) {
-                galleryHTML = `
-                    <div class="detail-gallery">
-                        ${p.images.map(img => `<img src="${img}" alt="${p.name}" onclick="document.getElementById('mainDetailImage').src='${img}'">`).join('')}
+                thumbnailsHTML = `
+                    <div class="thumbnail-row">
+                        ${p.images.map((img, idx) => `<img src="${img}" alt="${p.name}" onclick="changeMainImage('${img}', this)" class="${idx === 0 ? 'active' : ''}">`).join('')}
                     </div>
                 `;
             }
             
-            // Build video HTML
-            let videoHTML = '';
+            // Build specs table
+            const specsHTML = Object.entries(p.specs).map(([k, v]) => `
+                <tr><td>${k}</td><td>${v}</td></tr>
+            `).join('');
+            
+            // Build video section
+            let videoSectionHTML = '';
             if (p.video) {
-                videoHTML = `
-                    <div class="detail-video">
+                videoSectionHTML = `
+                    <div class="video-section">
                         <h3>${t.video || 'Product Video'}</h3>
-                        <video controls>
-                            <source src="${p.video}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                `;
-            }
-            
-            // Build detail images
-            let detailImagesHTML = '';
-            if (p.detailImages && p.detailImages.length > 0) {
-                detailImagesHTML = `
-                    <div style="margin-top: 20px;">
-                        <h3>${t.productDetails || 'Product Details'}</h3>
-                        <div class="detail-gallery" style="flex-wrap: wrap;">
-                            ${p.detailImages.map(img => `<img src="${img}" alt="Detail" style="width: 150px; height: 150px;">`).join('')}
+                        <div class="video-container">
+                            <video controls>
+                                <source src="${p.video}" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 `;
             }
             
-            document.getElementById('modalTitle').textContent = p.name;
+            // Build detail images section
+            let detailImagesHTML = '';
+            if (p.detailImages && p.detailImages.length > 0) {
+                detailImagesHTML = `
+                    <div class="detail-images-section">
+                        <h3>${t.productDetails || 'Product Details'}</h3>
+                        <div class="detail-images-grid">
+                            ${p.detailImages.map(img => `<img src="${img}" alt="Detail">`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('modalTitle').textContent = p.category;
             document.getElementById('modalBody').innerHTML = `
-                <div class="detail-image">
-                    <img id="mainDetailImage" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='📦';">
+                <div class="product-detail-container">
+                    <!-- Left Column - Images -->
+                    <div class="product-images-section">
+                        <div class="main-image-container">
+                            <img id="mainDetailImage" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=font-size:5rem>📦</span>';">
+                        </div>
+                        ${thumbnailsHTML}
+                    </div>
+                    
+                    <!-- Right Column - Product Info -->
+                    <div class="product-info-section">
+                        <div class="product-brand">Sunny Style</div>
+                        <h1 class="product-title-detail">${p.name}</h1>
+                        <div class="product-rating">★★★★★ <span style="color:#007185;font-size:0.85rem;">(4.8)</span></div>
+                        <div class="product-price-detail">
+                            <span class="currency">CAD</span> ${p.price.replace('CAD 
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Change language
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            document.getElementById('languageSelector').value = lang;
+            
+            const t = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+        }
+
+        // Close modal on outside click
+        window.onclick = function(e) {
+            const modal = document.getElementById('productModal');
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            changeLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
+, '')}
+                        </div>
+                        <div class="availability">✓ ${t.inStock || 'In Stock'}</div>
+                        
+                        <div class="product-divider"></div>
+                        
+                        <div class="description-section">
+                            <h3>${t.aboutThisItem || 'About This Item'}</h3>
+                            <div class="description-content">${p.fullDesc}</div>
+                        </div>
+                        
+                        <div class="product-divider"></div>
+                        
+                        <div class="specs-section">
+                            <h3>${t.specifications || 'Specifications'}</h3>
+                            <table class="specs-table-detail">
+                                ${specsHTML}
+                            </table>
+                        </div>
+                        
+                        ${videoSectionHTML}
+                        ${detailImagesHTML}
+                    </div>
                 </div>
-                ${galleryHTML}
-                <div class="detail-price">${p.price}</div>
-                <div class="detail-desc">${p.fullDesc}</div>
-                <div class="detail-specs">
-                    <h3>${t.specifications || 'Specifications'}</h3>
-                    <table>
-                        ${Object.entries(p.specs).map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}
-                    </table>
-                </div>
-                ${videoHTML}
-                ${detailImagesHTML}
             `;
             document.getElementById('productModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Change main image when thumbnail clicked
+        function changeMainImage(src, thumb) {
+            document.getElementById('mainDetailImage').src = src;
+            document.querySelectorAll('.thumbnail-row img').forEach(img => img.classList.remove('active'));
+            thumb.classList.add('active');
         }
 
         // Close modal
