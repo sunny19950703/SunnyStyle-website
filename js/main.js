@@ -70,7 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Render product cards
 function renderProducts() {
+    console.log('renderProducts called');
     const productGrid = document.getElementById('productGrid');
+    console.log('productGrid element:', productGrid);
+    
     if (!productGrid) {
         console.error('Product grid not found');
         return;
@@ -78,18 +81,23 @@ function renderProducts() {
     
     productGrid.innerHTML = '';
     
+    console.log('products variable:', typeof products, products);
+    
     if (typeof products === 'undefined') {
         console.error('Products data not loaded');
-        productGrid.innerHTML = '<p style="text-align: center; padding: 50px;">Loading products...</p>';
+        productGrid.innerHTML = '<p style="text-align: center; padding: 50px; color: red;">Error: Products not loaded</p>';
         return;
     }
     
-    products.forEach(product => {
+    console.log('Number of products:', products.length);
+    
+    products.forEach((product, index) => {
+        console.log('Creating card for product', index, product.name);
         const card = createProductCard(product);
         productGrid.appendChild(card);
     });
     
-    console.log('Products rendered:', products.length);
+    console.log('Products rendered successfully:', products.length);
 }
 
 // Create product card element
