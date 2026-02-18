@@ -45,23 +45,23 @@
         .modal-header { background: #1a365d; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .modal-header h2 { font-size: 1rem; }
         .close { color: white; font-size: 28px; cursor: pointer; }
+        .back-btn { background: #dd6b20; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 15px; font-size: 0.9rem; }
         .modal-body { padding: 20px; }
         
-        /* Product Detail - Simple Layout */
+        /* Product Detail - Amazon Style */
         .detail-layout { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        @media (min-width: 768px) { .detail-layout { grid-template-columns: 45% 55%; } }
+        @media (min-width: 768px) { .detail-layout { grid-template-columns: 40% 60%; } }
         
         .detail-left { }
         .detail-main-image { width: 100%; aspect-ratio: 1; background: #f8f8f8; display: flex; align-items: center; justify-content: center; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e0e0e0; }
         .detail-main-image img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .detail-thumbnails { display: flex; gap: 10px; overflow-x: auto; }
+        .detail-thumbnails { display: flex; gap: 10px; overflow-x: auto; justify-content: center; }
         .detail-thumbnails img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; cursor: pointer; border: 2px solid #ddd; }
-        .detail-thumbnails img:hover { border-color: #dd6b20; }
+        .detail-thumbnails img.active { border-color: #dd6b20; }
         
         .detail-right { }
         .detail-brand { color: #007185; font-size: 0.9rem; margin-bottom: 5px; }
         .detail-title { font-size: 1.5rem; font-weight: 500; margin-bottom: 10px; }
-        .detail-rating { color: #ffa41c; margin-bottom: 10px; }
         .detail-price { font-size: 2rem; color: #b12704; font-weight: 500; margin-bottom: 15px; }
         .detail-stock { color: #007600; font-size: 0.95rem; margin-bottom: 20px; }
         .detail-divider { height: 1px; background: #ddd; margin: 20px 0; }
@@ -73,8 +73,12 @@
         .detail-specs td:first-child { color: #666; width: 40%; }
         .detail-video { margin: 20px 0; }
         .detail-video video { width: 100%; border-radius: 8px; }
-        .detail-images { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
-        .detail-images img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 4px; }
+        
+        /* Detail Images - Centered Single Column */
+        .detail-images-section { margin: 20px 0; }
+        .detail-images-section h3 { font-size: 1rem; font-weight: 700; margin-bottom: 15px; text-align: center; }
+        .detail-images-list { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .detail-images-list img { width: 100%; max-width: 500px; border-radius: 4px; border: 1px solid #ddd; }
         
         /* About */
         #about { padding: 60px 0; background: white; }
@@ -85,13 +89,15 @@
         .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; text-align: center; padding: 30px; background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%); border-radius: 12px; color: white; }
         .stat-number { font-size: 2rem; font-weight: 700; color: #dd6b20; }
         
-        /* Contact */
+        /* Contact - Redesigned */
         #contact { padding: 60px 0; }
-        .contact-wrapper { display: grid; grid-template-columns: 1fr; gap: 30px; }
-        @media (min-width: 768px) { .contact-wrapper { grid-template-columns: 1fr 1fr; } }
-        .contact-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .contact-item { display: flex; gap: 15px; margin-bottom: 20px; }
-        .contact-icon { font-size: 1.5rem; }
+        .contact-wrapper { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        @media (min-width: 768px) { .contact-wrapper { grid-template-columns: repeat(3, 1fr); } }
+        .contact-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .contact-box .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .contact-box h3 { color: #1a365d; margin-bottom: 10px; }
+        .contact-box p { color: #666; line-height: 1.8; }
+        .contact-box a { color: #dd6b20; text-decoration: none; }
         
         /* Footer */
         footer { background: #2d3748; color: white; padding: 40px 0 20px; margin-top: 60px; }
@@ -173,10 +179,10 @@
                 </div>
             </div>
             <div class="about-stats">
-                <div><div class="stat-number">20+</div><div>Years Experience</div></div>
-                <div><div class="stat-number">5000+</div><div>Happy Customers</div></div>
-                <div><div class="stat-number">100+</div><div>Products</div></div>
-                <div><div class="stat-number">24/7</div><div>Support</div></div>
+                <div><div class="stat-number">20+</div><div data-i18n="stat_years">Years Experience</div></div>
+                <div><div class="stat-number">5000+</div><div data-i18n="stat_customers">Happy Customers</div></div>
+                <div><div class="stat-number">100+</div><div data-i18n="stat_products">Products</div></div>
+                <div><div class="stat-number">24/7</div><div data-i18n="stat_support">Support</div></div>
             </div>
         </div>
     </section>
@@ -189,33 +195,19 @@
             </div>
             <div class="contact-wrapper">
                 <div class="contact-box">
-                    <h3 data-i18n="contact_info">Contact Information</h3>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div>
-                            <strong data-i18n="address">Address</strong>
-                            <p>Verdun, Quebec<br>H3E 1H2<br>Canada</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📞</span>
-                        <div>
-                            <strong data-i18n="phone">Phone</strong>
-                            <p><a href="tel:1-514-776-5198" style="color: #dd6b20;">1-514-776-5198</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">✉️</span>
-                        <div>
-                            <strong data-i18n="email">Email</strong>
-                            <p><a href="mailto:kingskywing@gmail.com" style="color: #dd6b20;">kingskywing@gmail.com</a></p>
-                        </div>
-                    </div>
+                    <div class="icon">📍</div>
+                    <h3 data-i18n="address">Address</h3>
+                    <p>Verdun, Quebec<br>H3E 1H2<br>Canada</p>
                 </div>
                 <div class="contact-box">
-                    <h3 data-i18n="business_hours">Business Hours</h3>
-                    <p data-i18n="hours_text">Monday - Sunday<br>8:00 AM - 22:00 PM</p>
-                    <p style="margin-top: 20px; color: #718096;" data-i18n="response_time">We typically respond within 24 hours during business days.</p>
+                    <div class="icon">📞</div>
+                    <h3 data-i18n="phone">Phone</h3>
+                    <p><a href="tel:1-514-776-5198">1-514-776-5198</a></p>
+                </div>
+                <div class="contact-box">
+                    <div class="icon">✉️</div>
+                    <h3 data-i18n="email">Email</h3>
+                    <p><a href="mailto:kingskywing@gmail.com">kingskywing@gmail.com</a></p>
                 </div>
             </div>
         </div>
@@ -249,7 +241,10 @@
     <div id="productModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modalTitle">Product Details</h2>
+                <div style="display:flex;align-items:center;">
+                    <button class="back-btn" onclick="closeModal()">← <span data-i18n="back">Back</span></button>
+                    <h2 id="modalTitle">Product Details</h2>
+                </div>
                 <span class="close" onclick="closeModal()">&times;</span>
             </div>
             <div class="modal-body" id="modalBody"></div>
@@ -271,12 +266,11 @@
                 about_service_title: "Canada-Wide Service", about_service_desc: "We provide sales and after-sales support across Canada. Our network of service technicians ensures your equipment stays operational.",
                 about_custom_title: "Custom Solutions", about_custom_desc: "We work with you to understand your specific requirements and recommend the best equipment solutions.",
                 contact_title: "Contact Us", contact_subtitle: "Get in touch with us for product inquiries and quotes",
-                contact_info: "Contact Information", address: "Address", phone: "Phone", email: "Email",
-                business_hours: "Business Hours", hours_text: "Monday - Sunday<br>8:00 AM - 22:00 PM",
-                response_time: "We typically respond within 24 hours during business days.",
+                address: "Address", phone: "Phone", email: "Email",
                 footer_desc: "At Sunny Style, we provide modern electric strapping tools, pallet trucks, and handling equipment.",
                 footer_contact: "Contact Info", footer_hours: "Business Hours", footer_hours_text: "Monday - Sunday: 8:00 AM - 22:00 PM",
-                inStock: "In Stock", specifications: "Specifications", aboutThisItem: "About This Item", productDetails: "Product Details", video: "Product Video"
+                inStock: "In Stock", specifications: "Specifications", aboutThisItem: "About This Item", productDetails: "Product Details", video: "Product Video", back: "Back",
+                stat_years: "Years Experience", stat_customers: "Happy Customers", stat_products: "Products", stat_support: "Support"
             },
             fr: {
                 nav_home: "Accueil", nav_products: "Produits", nav_about: "À Propos", nav_contact: "Contact",
@@ -290,12 +284,11 @@
                 about_service_title: "Service National", about_service_desc: "Nous fournissons des ventes et un support après-vente à travers le Canada. Notre réseau de techniciens assure le bon fonctionnement.",
                 about_custom_title: "Solutions Sur Mesure", about_custom_desc: "Nous travaillons avec vous pour comprendre vos besoins spécifiques et recommander les meilleures solutions.",
                 contact_title: "Contactez-Nous", contact_subtitle: "Contactez-nous pour des demandes de produits et de devis",
-                contact_info: "Informations de Contact", address: "Adresse", phone: "Téléphone", email: "Email",
-                business_hours: "Heures d'Ouverture", hours_text: "Lundi - Dimanche<br>8h00 - 22h00",
-                response_time: "Nous répondons généralement sous 24 heures pendant les jours ouvrables.",
+                address: "Adresse", phone: "Téléphone", email: "Email",
                 footer_desc: "Chez Sunny Style, nous fournissons des outils de cerclage électriques modernes, des transpalettes et des équipements de manutention.",
                 footer_contact: "Infos Contact", footer_hours: "Heures d'Ouverture", footer_hours_text: "Lundi - Dimanche: 8h00 - 22h00",
-                inStock: "En Stock", specifications: "Spécifications", aboutThisItem: "À Propos de Ce Produit", productDetails: "Détails du Produit", video: "Vidéo du Produit"
+                inStock: "En Stock", specifications: "Spécifications", aboutThisItem: "À Propos de Ce Produit", productDetails: "Détails du Produit", video: "Vidéo du Produit", back: "Retour",
+                stat_years: "Années d'Expérience", stat_customers: "Clients Satisfaits", stat_products: "Produits", stat_support: "Support"
             },
             zh: {
                 nav_home: "首页", nav_products: "产品", nav_about: "关于我们", nav_contact: "联系我们",
@@ -309,16 +302,16 @@
                 about_service_title: "加拿大全国服务", about_service_desc: "我们在加拿大各地提供销售和售后支持。我们的服务技术人员网络确保您的设备始终保持正常运行。",
                 about_custom_title: "定制解决方案", about_custom_desc: "我们与您合作，了解您的具体需求，并推荐最佳的设备解决方案。",
                 contact_title: "联系我们", contact_subtitle: "联系我们获取产品咨询和报价",
-                contact_info: "联系信息", address: "地址", phone: "电话", email: "邮箱",
-                business_hours: "营业时间", hours_text: "周一至周日<br>上午8:00 - 下午10:00",
-                response_time: "我们通常在工作日24小时内回复。",
+                address: "地址", phone: "电话", email: "邮箱",
                 footer_desc: "在 Sunny Style，我们提供现代化的电动打包工具、搬运车和物料搬运设备。",
                 footer_contact: "联系信息", footer_hours: "营业时间", footer_hours_text: "周一至周日: 上午8:00 - 下午10:00",
-                inStock: "有现货", specifications: "产品规格", aboutThisItem: "商品介绍", productDetails: "产品详情", video: "产品视频"
+                inStock: "有现货", specifications: "产品规格", aboutThisItem: "商品介绍", productDetails: "产品详情", video: "产品视频", back: "返回",
+                stat_years: "年经验", stat_customers: "满意客户", stat_products: "产品", stat_support: "支持"
             }
         };
 
         let currentLang = 'en';
+        let currentMainImage = '';
 
         // Product Data
         const products = [
@@ -367,7 +360,7 @@
             const t = translations[lang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (t[key]) el.innerHTML = t[key];
+                if (t[key]) el.textContent = t[key];
             });
             renderProducts();
         }
@@ -375,7 +368,6 @@
         // Render products
         function renderProducts() {
             const grid = document.getElementById('productGrid');
-            const t = translations[currentLang];
             grid.innerHTML = products.map(p => `
                 <div class="product-card" onclick="openModal(${p.id})">
                     <div class="product-image">
@@ -390,15 +382,56 @@
             `).join('');
         }
 
+        // Change main image
+        function setMainImage(src, thumbElement) {
+            document.getElementById('mainImg').src = src;
+            document.querySelectorAll('.detail-thumbnails img').forEach(img => img.classList.remove('active'));
+            if (thumbElement) thumbElement.classList.add('active');
+        }
+
         // Open modal
         function openModal(id) {
             const p = products.find(x => x.id === id);
             if (!p) return;
             const t = translations[currentLang];
             
-            let thumbs = p.images ? p.images.map((img, i) => `<img src="${img}" onclick="document.getElementById('mainImg').src='${img}'" style="border:${i===0?'2px solid #dd6b20':'2px solid #ddd'}">`).join('') : '';
-            let videoHTML = p.video ? `<div class="detail-video"><h3>${t.video}</h3><video controls><source src="${p.video}" type="video/mp4"></video></div>` : '';
-            let detailImgs = p.detailImages ? `<div class="detail-section"><h3>${t.productDetails}</h3><div class="detail-images">${p.detailImages.map(img => `<img src="${img}">`).join('')}</div></div>` : '';
+            currentMainImage = p.image;
+            
+            let thumbsHTML = '';
+            if (p.images && p.images.length > 0) {
+                thumbsHTML = p.images.map((img, i) => 
+                    `<img src="${img}" onclick="setMainImage('${img}', this)" class="${i === 0 ? 'active' : ''}">`
+                ).join('');
+            }
+            
+            let videoHTML = '';
+            if (p.video) {
+                videoHTML = `
+                    <div class="detail-video">
+                        <h3>${t.video}</h3>
+                        <video controls poster="${p.image}">
+                            <source src="${p.video}" type="video/mp4">
+                        </video>
+                    </div>
+                `;
+            }
+            
+            let detailImagesHTML = '';
+            if (p.detailImages && p.detailImages.length > 0) {
+                detailImagesHTML = `
+                    <div class="detail-images-section">
+                        <h3>${t.productDetails}</h3>
+                        <div class="detail-images-list">
+                            ${p.detailImages.map(img => `<img src="${img}" alt="Detail">`).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            let specsHTML = '';
+            for (let [k, v] of Object.entries(p.specs)) {
+                specsHTML += `<tr><td>${k}</td><td>${v}</td></tr>`;
+            }
             
             document.getElementById('modalTitle').textContent = p.category;
             document.getElementById('modalBody').innerHTML = `
@@ -407,12 +440,11 @@
                         <div class="detail-main-image">
                             <img id="mainImg" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='📦';">
                         </div>
-                        <div class="detail-thumbnails">${thumbs}</div>
+                        ${thumbsHTML ? `<div class="detail-thumbnails">${thumbsHTML}</div>` : ''}
                     </div>
                     <div class="detail-right">
                         <div class="detail-brand">Sunny Style</div>
                         <h1 class="detail-title">${p.name}</h1>
-                        <div class="detail-rating">★★★★★ <span style="color:#007185">(4.8)</span></div>
                         <div class="detail-price">${p.price}</div>
                         <div class="detail-stock">✓ ${t.inStock}</div>
                         <div class="detail-divider"></div>
@@ -423,10 +455,10 @@
                         <div class="detail-divider"></div>
                         <div class="detail-section detail-specs">
                             <h3>${t.specifications}</h3>
-                            <table>${Object.entries(p.specs).map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>
+                            <table>${specsHTML}</table>
                         </div>
                         ${videoHTML}
-                        ${detailImgs}
+                        ${detailImagesHTML}
                     </div>
                 </div>
             `;
