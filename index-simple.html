@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Style - Efficiency Delivered. Convenience Powered</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #1a202c; background: #f7fafc; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 40px; height: 40px; background: #dd6b20; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        nav ul { display: flex; list-style: none; gap: 2rem; }
+        nav a { color: white; text-decoration: none; font-weight: 500; }
+        
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%); color: white; padding: 140px 0 80px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; }
+        .cta-button { display: inline-block; background: #dd6b20; color: white; padding: 15px 40px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+        
+        /* Products */
+        main { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.5rem; color: #1a365d; margin-bottom: 1rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .product-image { width: 100%; height: 220px; background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 25px; }
+        .product-category { color: #dd6b20; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+        .product-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 12px; }
+        .product-price { font-size: 1.5rem; font-weight: 700; color: #1a365d; margin-bottom: 15px; }
+        .btn-secondary { display: inline-block; padding: 12px 20px; border-radius: 6px; font-weight: 600; text-align: center; text-decoration: none; color: #1a365d; border: 2px solid #1a365d; background: transparent; }
+        
+        /* Contact */
+        #contact { padding: 60px 0; }
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1100px; margin: 0 auto; }
+        .contact-info-side { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .contact-item { display: flex; gap: 15px; margin-bottom: 25px; }
+        .contact-icon { font-size: 1.5rem; }
+        
+        /* Footer */
+        footer { background: #2d3748; color: white; padding: 60px 0 30px; margin-top: 80px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h3 { font-size: 1.25rem; margin-bottom: 20px; color: #dd6b20; }
+        .footer-section p, .footer-section a { color: #a0aec0; text-decoration: none; line-height: 2; }
+        .footer-bottom { border-top: 1px solid #4a5568; padding-top: 30px; text-align: center; color: #a0aec0; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">⚙</div>
+                <span>Sunny Style</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Efficiency Delivered. Convenience Powered</h1>
+            <p>Modern electric strapping tools, pallet trucks, and handling equipment for Canadian businesses</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <main id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>High-performance industrial equipment designed for reliability and efficiency</p>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/product1-main.jpg" alt="JK3200" onerror="this.style.display='none'; this.parentElement.innerHTML='📦';">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Strapping Equipment</div>
+                        <h3 class="product-name">JK3200 Electric Handheld Packaging Machine</h3>
+                        <div class="product-price">CAD $699</div>
+                        <a href="product1.html" class="btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/主图-1.jpg" alt="Stacker 1.6m" onerror="this.style.display='none'; this.parentElement.innerHTML='🚜';">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stacker</div>
+                        <h3 class="product-name">Portable Mini Self-Loading Stacker 1.6m</h3>
+                        <div class="product-price">CAD $999</div>
+                        <a href="product2.html" class="btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/主图-11.jpg" alt="Stacker 1000kg" onerror="this.style.display='none'; this.parentElement.innerHTML='🏗️';">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Stacker</div>
+                        <h3 class="product-name">Self-Loading Lifting Stacker 1000kg</h3>
+                        <div class="product-price">CAD $1,299</div>
+                        <a href="product3.html" class="btn-secondary">View Details</a>
+                    </div>
+                </div>
+
+                <!-- Product 4-10: Coming Soon -->
+                <div class="product-card">
+                    <div class="product-image">⏳</div>
+                    <div class="product-info">
+                        <div class="product-category">Material Handling</div>
+                        <h3 class="product-name">Coming Soon - New Product</h3>
+                        <div class="product-price">CAD $0.00</div>
+                        <p style="color: #718096; margin-top: 10px;">上新中，敬请期待！</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⏳</div>
+                    <div class="product-info">
+                        <div class="product-category">Material Handling</div>
+                        <h3 class="product-name">Coming Soon - New Product</h3>
+                        <div class="product-price">CAD $0.00</div>
+                        <p style="color: #718096; margin-top: 10px;">上新中，敬请期待！</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⏳</div>
+                    <div class="product-info">
+                        <div class="product-category">Strapping Equipment</div>
+                        <h3 class="product-name">Coming Soon - New Product</h3>
+                        <div class="product-price">CAD $0.00</div>
+                        <p style="color: #718096; margin-top: 10px;">上新中，敬请期待！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for product inquiries and quotes</p>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info-side">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Address</strong>
+                            <p>Verdun, Quebec<br>H3E 1H2<br>Canada</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p><a href="tel:1-514-776-5198" style="color: #dd6b20;">1-514-776-5198</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="mailto:kingskywing@gmail.com" style="color: #dd6b20;">kingskywing@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info-side">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Sunday<br>8:00 AM - 22:00 PM</p>
+                    <p style="margin-top: 20px; color: #718096;">We typically respond within 24 hours during business days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sunny Style</h3>
+                    <p>At Sunny Style, we provide modern electric strapping tools, pallet trucks, and handling equipment.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📍 Verdun, Quebec, H3E 1H2</p>
+                    <p>📞 1-514-776-5198</p>
+                    <p>✉️ kingskywing@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Sunday: 8:00 AM - 22:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sunny Style. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
