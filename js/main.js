@@ -102,12 +102,17 @@ function renderProducts() {
 
 // Create product card element
 function createProductCard(product) {
+    console.log('createProductCard called for:', product.name);
+    
     const card = document.createElement('div');
     card.className = 'product-card';
     
     const isImagePath = product.image && (product.image.startsWith('http') || product.image.startsWith('images/'));
     
-    card.innerHTML = `
+    console.log('isImagePath:', isImagePath, 'product.image:', product.image);
+    
+    const cardHTML = `
+        <div class="product-card-inner" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
         <div class="product-image" style="${isImagePath ? 'padding: 0; overflow: hidden;' : ''}">
             ${isImagePath 
                 ? `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-size: 4rem;\'>📦</span>';">`
