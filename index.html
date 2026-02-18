@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunny Style - Efficiency Delivered. Convenience Powered</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">⚙</div>
+                <span>Sunny Style</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-i18n="nav_home">Home</a></li>
+                    <li><a href="#products" data-i18n="nav_products">Products</a></li>
+                    <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <select id="languageSelector" onchange="setLanguage(this.value)">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="zh">🇨🇳 中文</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 data-i18n="hero_title">Efficiency Delivered. Convenience Powered</h1>
+            <p data-i18n="hero_subtitle">Modern electric strapping tools, pallet trucks, and handling equipment for Canadian businesses</p>
+            <a href="#products" class="cta-button" data-i18n="hero_cta">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <main id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="products_title">Our Products</h2>
+                <p data-i18n="products_subtitle">High-performance industrial equipment designed for reliability and efficiency</p>
+            </div>
+
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <div class="section-title">
+            <h2 data-i18n="about_title">About Sunny Style</h2>
+            <p data-i18n="about_subtitle">Efficiency Delivered. Convenience Powered</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p>At Sunny Style, we provide modern electric strapping tools, pallet trucks, and handling equipment designed to make your workflow faster, easier, and more efficient. Every product is built for reliability and user-friendly operation.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">✓</div>
+                    <h3>Quality Assurance</h3>
+                    <p>All our products undergo rigorous quality testing and meet Canadian safety standards. We partner with leading manufacturers to bring you reliable equipment that stands the test of time.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🚚</div>
+                    <h3>Canada-Wide Service</h3>
+                    <p>From Vancouver to Halifax, we provide sales, delivery, and after-sales support across Canada. Our network of service technicians ensures your equipment stays operational.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💼</div>
+                    <h3>Custom Solutions</h3>
+                    <p>Every business is unique. We work with you to understand your specific requirements and recommend the best equipment solutions tailored to your operations and budget.</p>
+                </div>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container">
+        <div class="section-title">
+            <h2 data-i18n="contact_title">Request a Quote</h2>
+            <p data-i18n="contact_subtitle">Get in touch with our team for pricing and availability</p>
+        </div>
+
+        <div class="contact-wrapper">
+            <div class="contact-info-side">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <strong>Address</strong>
+                        <p>Verdun, Quebec<br>H3E 1H2<br>Canada</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>1-514-776-5198</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <div>
+                        <strong>Email</strong>
+                        <p>kingskywing@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <div>
+                        <strong>Business Hours</strong>
+                        <p>Monday - Sunday<br>8:00 AM - 22:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook">f</a>
+                        <a href="#" class="social-icon" title="LinkedIn">in</a>
+                        <a href="#" class="social-icon" title="Twitter">X</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-section">
+                <div class="contact-info-box">
+                    <h3>📧 Contact Us</h3>
+                    <p style="margin-bottom: 20px;">Please contact us directly for product inquiries and quotes:</p>
+                    
+                    <div class="contact-item" style="margin-bottom: 15px;">
+                        <span class="contact-icon">✉️</span>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="mailto:kingskywing@gmail.com" style="color: var(--accent-color);">kingskywing@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" style="margin-bottom: 15px;">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Phone</strong>
+                            <p><a href="tel:1-514-776-5198" style="color: var(--accent-color);">1-514-776-5198</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <strong>Business Hours</strong>
+                            <p>Monday - Sunday<br>8:00 AM - 22:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                        <p style="color: var(--text-light); font-size: 0.9rem;">
+                            💬 We typically respond within 24 hours during business days.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer_company">Sunny Style</h3>
+                    <p data-i18n="footer_description">At Sunny Style, we provide modern electric strapping tools, pallet trucks, and handling equipment designed to make your workflow faster, easier, and more efficient. Efficiency Delivered. Convenience Powered.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-i18n="footer_contact">Contact Info</h3>
+                    <p data-i18n="footer_address">📍 Verdun, Quebec, H3E 1H2</p>
+                    <p data-i18n="footer_phone">📞 1-514-776-5198</p>
+                    <p data-i18n="footer_email">✉️ kingskywing@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-i18n="footer_hours">Business Hours</h3>
+                    <p data-i18n="footer_hours_weekday">Monday - Sunday: 8:00 AM - 22:00 PM</p>
+                    <p data-i18n="footer_hours_saturday">Monday - Sunday: 8:00 AM - 22:00 PM</p>
+                    <p data-i18n="footer_hours_sunday">Monday - Sunday: 8:00 AM - 22:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#products">Products</a></p>
+                    <p><a href="#about">About Us</a></p>
+                    <p><a href="#contact">Contact</a></p>
+                    <p><a href="#" onclick="showAdminLogin(); return false;">Admin</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_copyright">&copy; 2026 Sunny Style. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Product details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Quote Notification Modal -->
+    <div id="quoteNotificationModal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header" style="background: var(--success-color);">
+                <h2>🎉 New Quote Request!</h2>
+                <span class="close" onclick="closeQuoteNotification()">&times;</span>
+            </div>
+            <div class="modal-body" id="quoteNotificationBody">
+                <!-- Quote details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/email-service.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
