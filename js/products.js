@@ -414,6 +414,141 @@ const products = [
     },
     {
         id: 4,
+        name: "EP EPT20-ET2 Electric Pallet Truck 2 Ton",
+        category: "Pallet Truck",
+        price: "CAD $2,099",
+        image: "images/product4new-main.png",
+        images: [
+            "images/product4new-main.png",
+            "images/product4new-2.png",
+            "images/product4new-3.jpg",
+            "images/product4new-4.png",
+            "images/product4new-5.jpg"
+        ],
+        video: "images/product4new-video1.mp4",
+        video2: "images/product4new-video2.mp4",
+        detailImages: [
+            "images/product4new-detail-1.png",
+            "images/product4new-detail-2.png",
+            "images/product4new-detail-3.png",
+            "images/product4new-detail-4.jpg",
+            "images/product4new-detail-5.png",
+            "images/product4new-detail-6.png",
+            "images/product4new-detail-7.png",
+            "images/product4new-detail-8.png",
+            "images/product4new-detail-9.png",
+            "images/product4new-detail-10.jpg",
+            "images/product4new-detail-11.jpg",
+            "images/product4new-detail-12.jpg",
+            "images/product4new-detail-13.jpg",
+            "images/product4new-detail-14.jpg"
+        ],
+        shortDesc: "EP brand electric pallet truck, 2 ton load capacity, 115mm max lifting height, lithium battery powered",
+        fullDesc: "The EP EPT20-ET2 is a professional electric pallet truck with 2000kg load capacity and 115mm max lifting height. Powered by 48V/45Ah lithium-ion battery, featuring polyurethane tires, walk-behind operation mode, and front-wheel drive. Ideal for advertising companies, building material stores, construction projects, energy & mining, farms, and food & beverage shops.",
+        specs: {
+            "Model Number": "EPT20-ET2",
+            "Brand Name": "EP",
+            "Load Capacity": "2000kg",
+            "Max Lifting Height": "115mm",
+            "Battery Type": "Lithium-Ion",
+            "Battery Voltage": "48V/45Ah",
+            "Power Type": "Electric",
+            "Drive Type": "Front-Wheel Drive",
+            "Operation Mode": "Walk-Behind",
+            "Fork Length": "1150mm",
+            "Fork Width": "150mm",
+            "Fork Specs (L\u00d7W\u00d7H)": "1150\u00d7150\u00d750mm",
+            "Lowered Fork Height": "80mm",
+            "Self Weight": "216kg",
+            "Loaded Speed": "5 km/h",
+            "Unloaded Speed": "5.5 km/h",
+            "Load Center Distance": "600mm",
+            "Turning Radius": "1460mm",
+            "Aisle Width": "2279mm",
+            "Overall Length": "1626mm",
+            "Overall Width": "680mm",
+            "Tire Type": "Polyurethane",
+            "Terrain": "Indoor Floor",
+            "Voltage": "110V-220V",
+            "Gradeability (Loaded)": "0.06",
+            "Gradeability (Unloaded)": "0.08",
+            "Side Guard": "Electric Side Guard",
+            "Condition": "New",
+            "Place of Origin": "Zhejiang, China",
+            "Applicable Industries": "Advertising, Building Materials, Construction, Energy & Mining, Farms, Food & Beverage"
+        },
+        features: [
+            "2000kg heavy-duty load capacity",
+            "115mm max lifting height",
+            "48V/45Ah lithium-ion battery powered",
+            "Polyurethane tires for indoor floor use",
+            "Walk-behind operation mode",
+            "Front-wheel drive for easy maneuverability",
+            "Compact design: 1626mm length, 680mm width",
+            "3-year warranty"
+        ],
+        service: {
+            warranty: "3 Year Warranty",
+            support: "Online Support, Video Technical Support",
+            customization: "OEM, ODM, OBM Available"
+        },
+        attributes: {
+            "Condition": "New",
+            "Type": "Electric Pallet Truck",
+            "Brand Name": "EP",
+            "Load Capacity": "2000kg",
+            "Max Lifting Height": "115mm",
+            "Battery": "48V/45Ah Lithium-Ion",
+            "Power Type": "Electric",
+            "Voltage": "110V-220V",
+            "Place of Origin": "Zhejiang, China",
+            "After-sales Service": "Online Support, Video Technical Support"
+        },
+        description: `
+            <h3>Product Overview</h3>
+            <p>The EP EPT20-ET2 is a professional electric pallet truck designed for efficient material handling. With a 2000kg load capacity and 115mm max lifting height, powered by a 48V/45Ah lithium-ion battery, it delivers reliable performance for indoor operations.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>\u26a1 Powerful:</strong> 2000kg load capacity with 115mm lifting height</li>
+                <li><strong>\ud83d\udd0b Battery:</strong> 48V/45Ah lithium-ion battery for long runtime</li>
+                <li><strong>\ud83d\udeb6 Walk-Behind:</strong> Ergonomic walk-behind operation mode</li>
+                <li><strong>\ud83d\udee1\ufe0f Durable:</strong> Polyurethane tires for smooth indoor operation</li>
+                <li><strong>\ud83d\udcd0 Compact:</strong> 1626mm length, 680mm width, 1460mm turning radius</li>
+                <li><strong>\ud83c\udfed Versatile:</strong> Suitable for advertising, construction, farms, and more</li>
+            </ul>
+            
+            <h3>Product Details</h3>
+            <div style="margin: 20px 0;">
+                <img src="images/product4new-detail-1.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-2.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-3.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-4.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-5.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-6.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-7.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-8.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-9.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-10.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-11.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-12.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-13.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4new-detail-14.jpg" style="width: 100%; border-radius: 8px;">
+            </div>
+            
+            <h3>Video Demonstration</h3>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product4new-video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product4new-video2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `
+    },
+    {
+        id: 5,
         name: "Electric 3 Ton Pallet Truck Off-Road",
         category: "Pallet Truck",
         price: "CAD $1,699",
@@ -552,7 +687,7 @@ const products = [
         `
     },
     {
-        id: 5,
+        id: 6,
         name: "Scissor Lift Truck 300kg",
         category: "Material Handling",
         price: "CAD $1,699",
@@ -658,40 +793,9 @@ const products = [
         `
     },
     {
-        id: 6,
-        name: "Coming Soon - New Product",
-        category: "Strapping Equipment",
-        price: "CAD $0.00",
-        image: "⏳",
-        images: [],
-        shortDesc: "上新中，敬请期待！",
-        fullDesc: "This product is currently in preparation. Stay tuned for the latest updates!",
-        specs: {
-            "Status": "Coming Soon"
-        },
-        features: [
-            "Coming Soon"
-        ],
-        service: {
-            warranty: "Coming Soon",
-            support: "Coming Soon",
-            customization: "Coming Soon"
-        },
-        attributes: {
-            "Status": "Coming Soon"
-        },
-        description: `
-            <h3>产品上新中</h3>
-            <p style="text-align: center; font-size: 1.5rem; color: var(--accent-color); margin: 40px 0;">
-                ⏳ 上新中，敬请期待！<br><br>
-                <span style="font-size: 1rem; color: var(--text-light);">This product is currently in preparation.<br>Stay tuned for the latest updates!</span>
-            </p>
-        `
-    },
-    {
         id: 7,
         name: "Coming Soon - New Product",
-        category: "Material Handling",
+        category: "Strapping Equipment",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
@@ -722,7 +826,7 @@ const products = [
     {
         id: 8,
         name: "Coming Soon - New Product",
-        category: "Strapping Equipment",
+        category: "Material Handling",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
@@ -753,7 +857,7 @@ const products = [
     {
         id: 9,
         name: "Coming Soon - New Product",
-        category: "Material Handling",
+        category: "Strapping Equipment",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
@@ -783,6 +887,37 @@ const products = [
     },
     {
         id: 10,
+        name: "Coming Soon - New Product",
+        category: "Material Handling",
+        price: "CAD $0.00",
+        image: "⏳",
+        images: [],
+        shortDesc: "上新中，敬请期待！",
+        fullDesc: "This product is currently in preparation. Stay tuned for the latest updates!",
+        specs: {
+            "Status": "Coming Soon"
+        },
+        features: [
+            "Coming Soon"
+        ],
+        service: {
+            warranty: "Coming Soon",
+            support: "Coming Soon",
+            customization: "Coming Soon"
+        },
+        attributes: {
+            "Status": "Coming Soon"
+        },
+        description: `
+            <h3>产品上新中</h3>
+            <p style="text-align: center; font-size: 1.5rem; color: var(--accent-color); margin: 40px 0;">
+                ⏳ 上新中，敬请期待！<br><br>
+                <span style="font-size: 1rem; color: var(--text-light);">This product is currently in preparation.<br>Stay tuned for the latest updates!</span>
+            </p>
+        `
+    },
+    {
+        id: 11,
         name: "Coming Soon - New Product",
         category: "Strapping Equipment",
         price: "CAD $0.00",

@@ -49,6 +49,23 @@ const products = [
     },
     {
         id: 4,
+        name: "EP EPT20-ET2 Electric Pallet Truck 2 Ton",
+        category: "Pallet Truck",
+        price: "CAD $2,099",
+        image: "images/product4new-main.png",
+        images: ["images/product4new-main.png","images/product4new-2.png","images/product4new-3.jpg","images/product4new-4.png","images/product4new-5.jpg"],
+        video: "images/product4new-video1.mp4",
+        video2: "images/product4new-video2.mp4",
+        shortDesc: "EP brand electric pallet truck, 2 ton load capacity, 115mm max lifting height",
+        fullDesc: "The EP EPT20-ET2 is a professional electric pallet truck with 2000kg load capacity and 115mm max lifting height.",
+        specs: {"Model Number":"EPT20-ET2","Brand Name":"EP","Load Capacity":"2000kg","Max Lifting Height":"115mm","Battery":"48V/45Ah Lithium-Ion","Voltage":"110V-220V"},
+        features: ["2000kg load capacity","115mm max lifting height","48V/45Ah lithium-ion battery","Polyurethane tires"],
+        service: {warranty:"3 Years",support:"Online Support",customization:"OEM, ODM, OBM Available"},
+        attributes: {"Condition":"New","Type":"Electric Pallet Truck","Origin":"Zhejiang, China"},
+        description: "<h3>Product Overview</h3><p>Professional electric pallet truck for efficient material handling.</p>"
+    },
+    {
+        id: 5,
         name: "Electric 3 Ton Pallet Truck Off-Road",
         category: "Pallet Truck",
         price: "CAD $1,699",
@@ -64,7 +81,7 @@ const products = [
         description: "<h3>Product Overview</h3><p>Heavy-duty pallet truck for rugged environments.</p>"
     },
     {
-        id: 5,
+        id: 6,
         name: "Scissor Lift Truck 300kg",
         category: "Material Handling",
         price: "CAD $1,699",
@@ -80,78 +97,78 @@ const products = [
         description: "<h3>Product Overview</h3><p>Heavy-duty scissor lift truck for versatile material handling.</p>"
     },
     {
-        id: 6,
+        id: 7,
         name: "Coming Soon - New Product",
         category: "Strapping Equipment",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
-        shortDesc: "上新中，敬请期待！",
+        shortDesc: "Coming Soon!",
         fullDesc: "This product is currently in preparation.",
         specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
         service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
         attributes: {"Status":"Coming Soon"},
-        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
-    },
-    {
-        id: 7,
-        name: "Coming Soon - New Product",
-        category: "Material Handling",
-        price: "CAD $0.00",
-        image: "⏳",
-        images: [],
-        shortDesc: "上新中，敬请期待！",
-        fullDesc: "This product is currently in preparation.",
-        specs: {"Status":"Coming Soon"},
-        features: ["Coming Soon"],
-        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
-        attributes: {"Status":"Coming Soon"},
-        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
+        description: "<h3>Coming Soon</h3><p>Stay tuned!</p>"
     },
     {
         id: 8,
         name: "Coming Soon - New Product",
-        category: "Strapping Equipment",
+        category: "Material Handling",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
-        shortDesc: "上新中，敬请期待！",
+        shortDesc: "Coming Soon!",
         fullDesc: "This product is currently in preparation.",
         specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
         service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
         attributes: {"Status":"Coming Soon"},
-        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
+        description: "<h3>Coming Soon</h3><p>Stay tuned!</p>"
     },
     {
         id: 9,
+        name: "Coming Soon - New Product",
+        category: "Strapping Equipment",
+        price: "CAD $0.00",
+        image: "⏳",
+        images: [],
+        shortDesc: "Coming Soon!",
+        fullDesc: "This product is currently in preparation.",
+        specs: {"Status":"Coming Soon"},
+        features: ["Coming Soon"],
+        service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
+        attributes: {"Status":"Coming Soon"},
+        description: "<h3>Coming Soon</h3><p>Stay tuned!</p>"
+    },
+    {
+        id: 10,
         name: "Coming Soon - New Product",
         category: "Material Handling",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
-        shortDesc: "上新中，敬请期待！",
+        shortDesc: "Coming Soon!",
         fullDesc: "This product is currently in preparation.",
         specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
         service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
         attributes: {"Status":"Coming Soon"},
-        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
+        description: "<h3>Coming Soon</h3><p>Stay tuned!</p>"
     },
     {
-        id: 10,
+        id: 11,
         name: "Coming Soon - New Product",
         category: "Strapping Equipment",
         price: "CAD $0.00",
         image: "⏳",
         images: [],
-        shortDesc: "上新中，敬请期待！",
+        shortDesc: "Coming Soon!",
         fullDesc: "This product is currently in preparation.",
         specs: {"Status":"Coming Soon"},
         features: ["Coming Soon"],
         service: {warranty:"Coming Soon",support:"Coming Soon",customization:"Coming Soon"},
         attributes: {"Status":"Coming Soon"},
-        description: "<h3>产品上新中</h3><p>Coming Soon!</p>"
+        description: "<h3>Coming Soon</h3><p>Stay tuned!</p>"
     }
 ];
