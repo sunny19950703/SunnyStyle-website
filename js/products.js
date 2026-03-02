@@ -553,33 +553,108 @@ const products = [
     },
     {
         id: 5,
-        name: "Coming Soon - New Product",
+        name: "Scissor Lift Truck 300kg",
         category: "Material Handling",
-        price: "CAD $0.00",
-        image: "⏳",
-        images: [],
-        shortDesc: "上新中，敬请期待！",
-        fullDesc: "This product is currently in preparation. Stay tuned for the latest updates!",
+        price: "CAD $1,699",
+        image: "images/product5-main.jpg",
+        images: [
+            "images/product5-main.jpg",
+            "images/product5-2.jpg",
+            "images/product5-3.jpg",
+            "images/product5-4.jpg",
+            "images/product5-5.jpg",
+            "images/product5-6.jpg"
+        ],
+        video: "images/product5-video.mp4",
+        detailImages: [
+            "images/product5-detail-1.jpg",
+            "images/product5-detail-2.jpg",
+            "images/product5-detail-3.jpg",
+            "images/product5-detail-4.jpg",
+            "images/product5-detail-5.jpg",
+            "images/product5-detail-6.jpg",
+            "images/product5-detail-7.jpg",
+            "images/product5-detail-8.jpg",
+            "images/product5-detail-9.jpg",
+            "images/product5-detail-10.jpg",
+            "images/product5-detail-11.jpg"
+        ],
+        shortDesc: "Scissor lift truck with 300kg load capacity, metal structure, four-wheel design",
+        fullDesc: "The HYTC Scissor Lift Truck is a heavy-duty material handling solution with 300kg load capacity. Featuring modern mesh structure design, four-wheel stability, and easy-carrying portability, it is ideal for storage, shopping, industrial and transport applications.",
         specs: {
-            "Status": "Coming Soon"
+            "Model Number": "HYTC",
+            "Type": "Scissor Lift Trucks",
+            "Load Capacity": "300kg",
+            "Material": "Metal",
+            "Structure": "Mesh",
+            "Wheel": "Four-Wheel",
+            "Style": "Modern Design",
+            "Color": "Customizable",
+            "Place of Origin": "Shandong, China"
         },
         features: [
-            "Coming Soon"
+            "300kg heavy-duty load capacity",
+            "Scissor lift mechanism for adjustable height",
+            "Four-wheel design for stability",
+            "Metal mesh structure for durability",
+            "Modern compact design",
+            "Easy-carrying and portable"
         ],
         service: {
-            warranty: "Coming Soon",
-            support: "Coming Soon",
-            customization: "Coming Soon"
+            warranty: "3 Year Warranty",
+            support: "Online Support, Video Technical Support",
+            customization: "OEM, ODM, OBM Available"
         },
         attributes: {
-            "Status": "Coming Soon"
+            "Condition": "New",
+            "Type": "Scissor Lift Trucks",
+            "Load Capacity": "300kg",
+            "Material": "Metal",
+            "Structure": "Mesh",
+            "Wheel": "Four-Wheel",
+            "Usage": "Storage, Shopping, Industrial, Tools",
+            "Application": "Moving Objects",
+            "Use": "Transport",
+            "Customized Support": "OEM, ODM, OBM",
+            "Place of Origin": "Shandong, China",
+            "Brand Name": "Accept Customized",
+            "Warranty": "3 Years",
+            "After-sales Service": "Online Support, Video Technical Support"
         },
         description: `
-            <h3>产品上新中</h3>
-            <p style="text-align: center; font-size: 1.5rem; color: var(--accent-color); margin: 40px 0;">
-                ⏳ 上新中，敬请期待！<br><br>
-                <span style="font-size: 1rem; color: var(--text-light);">This product is currently in preparation.<br>Stay tuned for the latest updates!</span>
-            </p>
+            <h3>Product Overview</h3>
+            <p>The HYTC Scissor Lift Truck is a versatile heavy-duty material handling solution designed for a wide range of applications. With a 300kg load capacity and modern mesh structure, this scissor lift truck provides reliable performance for storage, shopping, industrial, and transport operations.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>💪 Heavy Duty:</strong> 300kg load capacity for demanding material handling tasks</li>
+                <li><strong>🔧 Scissor Lift:</strong> Adjustable height mechanism for versatile use</li>
+                <li><strong>🛞 Four-Wheel:</strong> Stable four-wheel design for safe operation</li>
+                <li><strong>🏗️ Metal Structure:</strong> Durable mesh construction for long-lasting performance</li>
+                <li><strong>🚀 Portable:</strong> Easy-carrying design for convenient transport</li>
+                <li><strong>🎨 Customizable:</strong> OEM, ODM, OBM support with customizable colors</li>
+            </ul>
+            
+            <h3>Product Details</h3>
+            <div style="margin: 20px 0;">
+                <img src="images/product5-detail-1.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-2.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-3.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-4.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-5.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-6.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-7.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-8.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-9.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-10.jpg" style="width: 100%; border-radius: 8px;">
+                <img src="images/product5-detail-11.jpg" style="width: 100%; border-radius: 8px;">
+            </div>
+            
+            <h3>Video Demonstration</h3>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product5-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         `
     },
     {

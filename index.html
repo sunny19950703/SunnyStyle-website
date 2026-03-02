@@ -483,7 +483,7 @@
             grid.innerHTML = products.map(p => `
                 <div class="product-card" onclick="openModal(${p.id})">
                     <div class="product-image">
-                        ${p.id <= 4 ? `<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='📦';">` : p.image}
+                        ${p.id <= 5 ? `<img src="${p.image}" alt="${p.name}" onerror="this.style.display='none'; this.parentElement.innerHTML='📦';">` : p.image}
                     </div>
                     <div class="product-info">
                         <div class="product-category">${p.category}</div>
