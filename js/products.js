@@ -55,7 +55,7 @@ const products = [
             "Machinery Test Report": "Available",
             "Video Outgoing-inspection": "Available",
             "Core Selling Points": "Easy Operation, High Safety, High Productivity, Multi-function",
-            "Place of Origin": "Shandong, China",
+            "Place of Origin": "China",
             "Weight (KG)": "5.5",
             "Brand": "Jike",
             "Dimension (L×W×H)": "38*13*13cm"

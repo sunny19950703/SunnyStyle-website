@@ -9,7 +9,7 @@ const products = [
         video: "images/product1-video.mp4",
         shortDesc: "Portable electric strapping tool for 13-16mm PP/PET straps",
         fullDesc: "The JK3200 is a professional handheld electric strapping machine designed for mobile packaging operations.",
-        specs: {"Model":"JK3200","Strap Width":"13-16mm","Tension Force":"900-3200N","Battery Life":"90 minutes"},
+        specs: {"Application":"Transport","Packaging Type":"Cartons","Packaging Material":"Plastic","Voltage":"110V-220V","Driven Type":"Electric","Automatic Grade":"Automatic","Core Components":"PLC, Gear, Bearing","Warranty":"1 Year","After-sales Service":"Online Support, Video Technical Support","Machinery Test Report":"Provided","Video Outgoing-Inspection":"Provided","Key Selling Points":"Easy To Operate, High Safety Level, High Productivity, Multifunctional","Place of Origin":"China","Weight":"5.5 KG","Brand Name":"Jike","Dimension (L*W*H)":"38*13*13cm"},
         features: ["One-handed operation","Friction welding","Adjustable tension"],
         service: {warranty:"1 Year",support:"Online",customization:"Available"},
         attributes: {"Application":"Packaging","Voltage":"110V-220V"},
