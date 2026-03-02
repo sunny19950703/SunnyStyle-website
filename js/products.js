@@ -794,33 +794,116 @@ const products = [
     },
     {
         id: 7,
-        name: "Coming Soon - New Product",
-        category: "Strapping Equipment",
-        price: "CAD $0.00",
-        image: "⏳",
-        images: [],
-        shortDesc: "上新中，敬请期待！",
-        fullDesc: "This product is currently in preparation. Stay tuned for the latest updates!",
+        name: "Electric Industrial Tools Climbing Steel Platform Machine 400 kg Load Capacity Foldable Auxiliary Turning",
+        category: "Wheelbarrows",
+        price: "CAD $1,299",
+        image: "images/product7-main.jpg",
+        images: [
+            "images/product7-main.jpg",
+            "images/product7-2.jpg",
+            "images/product7-3.jpg",
+            "images/product7-4.jpg",
+            "images/product7-5.jpg",
+            "images/product7-6.jpg"
+        ],
+        video: "images/product7-video1.mp4",
+        video2: "images/product7-video2.mp4",
+        detailImages: [
+            "images/product7-detail-1.avif",
+            "images/product7-detail-2.avif",
+            "images/product7-detail-3.avif",
+            "images/product7-detail-4.avif",
+            "images/product7-detail-5.avif",
+            "images/product7-detail-6.avif",
+            "images/product7-detail-7.avif",
+            "images/product7-detail-8.avif",
+            "images/product7-detail-9.avif",
+            "images/product7-detail-10.avif",
+            "images/product7-detail-11.avif"
+        ],
+        shortDesc: "Electric stair climber with 400kg load capacity, 1200W motor, foldable steel platform, six-wheel design",
+        fullDesc: "Electric Industrial Climbing Steel Platform Machine with 400kg load capacity and 1200W motor power. Features foldable design, six-wheel structure, powder coating surface treatment, lithium battery 48V/72Ah.",
         specs: {
-            "Status": "Coming Soon"
+            "Usage": "Storage, Shopping, Industrial, Tools, Other",
+            "Material": "Steel",
+            "Wheel": "Six-Wheel",
+            "Surface Treatment": "Powder Coating",
+            "Customized Support": "OEM",
+            "Motor Power": "1200W",
+            "Model Number": "LP-400-1",
+            "Type": "Wheelbarrows",
+            "Load Capacity": "400KG",
+            "Color": "Black",
+            "Power": "1200W",
+            "Frame Size": "54*110CM",
+            "Structure": "Platform",
+            "Feature": "Foldable",
+            "Warranty": "1 Year",
+            "Post Material": "Metal Steel",
+            "Place of Origin": "China",
+            "Product Name": "Electric Stair Climber",
+            "Batteries": "Lithium Battery 48V/72Ah",
+            "Voltage": "110V-220V"
         },
         features: [
-            "Coming Soon"
+            "400kg heavy-duty load capacity",
+            "1200W powerful motor",
+            "Foldable steel platform design",
+            "Six-wheel structure for stair climbing",
+            "Powder coating surface treatment",
+            "Lithium battery 48V/72Ah",
+            "OEM customization available"
         ],
         service: {
-            warranty: "Coming Soon",
-            support: "Coming Soon",
-            customization: "Coming Soon"
+            warranty: "1 Year Warranty",
+            support: "Online Support, Video Technical Support",
+            customization: "OEM Available"
         },
         attributes: {
-            "Status": "Coming Soon"
+            "Condition": "New",
+            "Type": "Wheelbarrows",
+            "Load Capacity": "400KG",
+            "Motor Power": "1200W",
+            "Material": "Steel",
+            "Batteries": "Lithium Battery 48V/72Ah",
+            "Voltage": "110V-220V",
+            "Place of Origin": "China"
         },
         description: `
-            <h3>产品上新中</h3>
-            <p style="text-align: center; font-size: 1.5rem; color: var(--accent-color); margin: 40px 0;">
-                ⏳ 上新中，敬请期待！<br><br>
-                <span style="font-size: 1rem; color: var(--text-light);">This product is currently in preparation.<br>Stay tuned for the latest updates!</span>
-            </p>
+            <h3>Product Overview</h3>
+            <p>The Electric Industrial Climbing Steel Platform Machine is a powerful stair climbing solution with 400kg load capacity and 1200W motor. Featuring a foldable steel platform, six-wheel structure, and lithium battery 48V/72Ah.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>\ud83d\udcaa Heavy Duty:</strong> 400kg load capacity</li>
+                <li><strong>\u26a1 Powerful:</strong> 1200W motor for efficient stair climbing</li>
+                <li><strong>\ud83d\udd04 Foldable:</strong> Compact foldable design</li>
+                <li><strong>\ud83d\udee1\ufe0f Six-Wheel:</strong> Stable stair climbing structure</li>
+                <li><strong>\ud83d\udd0b Battery:</strong> Lithium 48V/72Ah for long runtime</li>
+            </ul>
+            
+            <h3>Product Details</h3>
+            <div style="margin: 20px 0;">
+                <img src="images/product7-detail-1.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-2.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-3.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-4.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-5.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-6.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-7.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-8.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-9.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-10.avif" style="width: 100%; border-radius: 8px;">
+                <img src="images/product7-detail-11.avif" style="width: 100%; border-radius: 8px;">
+            </div>
+            
+            <h3>Video Demonstration</h3>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product7-video1.mp4" type="video/mp4">
+            </video>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product7-video2.mp4" type="video/mp4">
+            </video>
         `
     },
     {
