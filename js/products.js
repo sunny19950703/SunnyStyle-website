@@ -414,33 +414,141 @@ const products = [
     },
     {
         id: 4,
-        name: "Coming Soon - New Product",
-        category: "Material Handling",
-        price: "CAD $0.00",
-        image: "⏳",
-        images: [],
-        shortDesc: "上新中，敬请期待！",
-        fullDesc: "This product is currently in preparation. Stay tuned for the latest updates!",
+        name: "Electric 3 Ton Pallet Truck Off-Road",
+        category: "Pallet Truck",
+        price: "CAD $1,699",
+        image: "images/product4-main.jpg",
+        images: [
+            "images/product4-main.jpg",
+            "images/product4-2.jpg",
+            "images/product4-3.jpg",
+            "images/product4-4.jpg",
+            "images/product4-5.jpg",
+            "images/product4-6.jpg"
+        ],
+        video: "images/product4-video.mp4",
+        detailImages: [
+            "images/product4-detail-1.png",
+            "images/product4-detail-2.png",
+            "images/product4-detail-3.png",
+            "images/product4-detail-4.png",
+            "images/product4-detail-5.png",
+            "images/product4-detail-6.png"
+        ],
+        shortDesc: "New electric 3 ton pallet truck with off-road tires, 120mm max lifting height",
+        fullDesc: "The Jinsheng Electric 3 Ton Pallet Truck is a powerful DC motor-driven power pallet jack designed for heavy-duty material handling. Featuring off-road tire configuration, 3-ton load capacity, and 120mm max lifting height, it is ideal for farms, warehouses, and rugged industrial environments.",
         specs: {
-            "Status": "Coming Soon"
+            "Model Number": "Off-road tire automatic",
+            "Color": "Black",
+            "Load Capacity": "3.0 Ton",
+            "Max. Lifting Height": "120mm",
+            "Power Source": "DC Motor",
+            "Fork Length": "1150mm / 1500mm",
+            "Fork Width": "550mm / 685mm",
+            "Drive Type": "Manual",
+            "Operation Mode": "Manual",
+            "Terrain Adaptability": "Off-road / Multi-terrain",
+            "Condition": "New",
+            "Warranty": "1 Year"
         },
         features: [
-            "Coming Soon"
+            "3-ton heavy-duty load capacity",
+            "Off-road tire for rugged terrain",
+            "DC motor powered for reliable performance",
+            "120mm max lifting height",
+            "Multiple fork length options (1150mm / 1500mm)",
+            "Multiple fork width options (550mm / 685mm)",
+            "Durable black finish design"
         ],
         service: {
-            warranty: "Coming Soon",
-            support: "Coming Soon",
-            customization: "Coming Soon"
+            warranty: "1 Year Warranty",
+            support: "Online Support, Video Technical Support",
+            customization: "Logo Customization Available"
         },
         attributes: {
-            "Status": "Coming Soon"
+            "Condition": "New",
+            "Type": "Power Pallet Truck, Pallet Jack, Electric Mule",
+            "Load Capacity": "3.0 Ton",
+            "Power Source": "DC Motor",
+            "Terrain Adaptability": "Off-road / Multi-terrain",
+            "Operation Mode": "Manual",
+            "Fork Length": "1150mm / 1500mm",
+            "Fork Width": "550mm / 685mm",
+            "Drive Type": "Manual",
+            "Applicable Industry": "Farm, Warehouse, Construction",
+            "Place of Origin": "Hebei, China",
+            "Brand Name": "Jinsheng",
+            "Warranty": "1 Year",
+            "After-sales Service": "Online Support, Video Technical Support",
+            "Machinery Test Report": "Available",
+            "Video Outgoing-inspection": "Available"
         },
         description: `
-            <h3>产品上新中</h3>
-            <p style="text-align: center; font-size: 1.5rem; color: var(--accent-color); margin: 40px 0;">
-                ⏳ 上新中，敬请期待！<br><br>
-                <span style="font-size: 1rem; color: var(--text-light);">This product is currently in preparation.<br>Stay tuned for the latest updates!</span>
-            </p>
+            <h3>Product Overview</h3>
+            <p>The Jinsheng Electric 3 Ton Pallet Truck is a heavy-duty power pallet jack built for demanding material handling tasks. Powered by a reliable DC motor and equipped with off-road tires, this pallet truck excels in rugged environments including farms, warehouses, and construction sites. With a 3-ton load capacity and 120mm max lifting height, it delivers exceptional performance for heavy loads.</p>
+            
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>💪 Heavy-Duty Capacity:</strong> 3-ton load capacity for handling heavy pallets and materials</li>
+                <li><strong>🛞 Off-Road Tires:</strong> Automatic off-road tire configuration for multi-terrain adaptability</li>
+                <li><strong>⚡ DC Motor Powered:</strong> Reliable electric power source for consistent performance</li>
+                <li><strong>📏 Flexible Fork Options:</strong> Fork length 1150mm/1500mm, fork width 550mm/685mm</li>
+                <li><strong>🔧 Easy Operation:</strong> Manual operation mode for intuitive handling</li>
+                <li><strong>🛡️ 1 Year Warranty:</strong> Full warranty coverage with online and video technical support</li>
+            </ul>
+            
+            <h3>Technical Specifications</h3>
+            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: #f7fafc;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Model</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Off-road tire automatic</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Color</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Black</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Load Capacity</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">3.0 Ton</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Max. Lifting Height</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">120mm</td>
+                </tr>
+                <tr style="background: #f7fafc;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Power Source</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">DC Motor</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Drive Type</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Manual</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Fork Length</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">1150mm / 1500mm</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Fork Width</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">550mm / 685mm</td>
+                </tr>
+                <tr style="background: #f7fafc;">
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Terrain</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">Off-road / Multi-terrain</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0; font-weight: bold;">Warranty</td>
+                    <td style="padding: 10px; border: 1px solid #e2e8f0;">1 Year</td>
+                </tr>
+            </table>
+            
+            <h3>Applications</h3>
+            <p>Ideal for: Farms, Warehouses, Construction sites, Loading docks, Industrial facilities, Outdoor paved and unpaved areas</p>
+            
+            <h3>Product Images</h3>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin: 20px 0;">
+                <img src="images/product4-detail-1.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4-detail-2.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4-detail-3.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4-detail-4.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4-detail-5.png" style="width: 100%; border-radius: 8px;">
+                <img src="images/product4-detail-6.png" style="width: 100%; border-radius: 8px;">
+            </div>
+            
+            <h3>Video Demonstration</h3>
+            <video controls style="width: 100%; border-radius: 8px; margin: 20px 0;">
+                <source src="images/product4-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         `
     },
     {
